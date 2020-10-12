@@ -34,6 +34,18 @@
   font-size: 18px;
 }
 
+.ant-menu-submenu-title {
+  padding: 10px 15px;
+  font-weight: bolder;
+  font-size: 18px;
+}
+
+.ant-menu-item {
+  padding: 10px 15px;
+  font-weight: bolder;
+  font-size: 18px;
+}
+
 .menu__container .ant-menu-horizontal {
   border-bottom: none;
 }

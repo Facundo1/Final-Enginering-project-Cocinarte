@@ -18,9 +18,21 @@ function LeftMenu(props) {
             <a href='/Catalogo'>Catalogo</a>
           </Menu.Item>
         </MenuItemGroup>
-        <MenuItemGroup title='Item 2'>
-          <Menu.Item key='setting:3'>Option 3</Menu.Item>
-          <Menu.Item key='setting:4'>Option 4</Menu.Item>
+      </SubMenu>
+      <Menu.Item key='Premium'>
+        <a href='/Precios'>Precios</a>
+      </Menu.Item>
+      <SubMenu title={<span>Herramientas</span>}>
+        <MenuItemGroup title=''>
+          <Menu.Item key='G_dieta'>
+            <a href='/Dieta'>Generador de dieta</a>
+          </Menu.Item>
+          <Menu.Item key='C_profesionales'>
+            <a href='/Cursos'>Cursos profesionales</a>
+          </Menu.Item>
+          <Menu.Item key=''>
+            <a href='/Beneficios'>Beneficios</a>
+          </Menu.Item>
         </MenuItemGroup>
       </SubMenu>
     </Menu>

@@ -20,8 +20,8 @@ export default class Recipe extends Component {
             alt='recipe'
           />
           <div className='card-body text-capitalize'>
-            <h6>{title}</h6>
-            <h6 className='text-warning text-slanted'>Proveedor {publisher}</h6>
+            <h3>{title}</h3>
+            <h3 className='text-warning text-slanted'>{publisher}</h3>
           </div>
           <div className='card-footer'>
             <Link
@@ -30,14 +30,6 @@ export default class Recipe extends Component {
             >
               Detalles
             </Link>
-            <a
-              href={source_url}
-              target='_blank'
-              rel='noopener noreferrer'
-              className='btn btn-success mx-2 text-capitalize'
-            >
-              Sitio Web
-            </a>
           </div>
         </div>
       </div>

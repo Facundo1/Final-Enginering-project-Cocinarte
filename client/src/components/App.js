@@ -6,9 +6,11 @@ import LoginPage from './views/LoginPage/LoginPage.js'
 import RegisterPage from './views/RegisterPage/RegisterPage.js'
 import NavBar from './views/NavBar/NavBar'
 import Footer from './views/Footer/Footer'
-import Home from './views/Recipes/Home'
+import Home from './views/LandingPage/Home'
 import Recipes from './views/Recipes/Recipes'
-
+import SingleRecipe from './views/Recipes/SingleRecipe'
+import Catalogo from './views/Recipes/Catalog'
+import Precios from './views/Pricing/PricingHome'
 //null   Anyone Can go inside
 //true   only logged in user can go inside
 //false  logged in user can't go inside
@@ -23,6 +25,13 @@ function App() {
           <Route exact path='/login' component={Auth(LoginPage, false)} />
           <Route exact path='/register' component={Auth(RegisterPage, false)} />
           <Route exact path='/Recetas' component={Auth(Recipes, null)} />
+          <Route exact path='/Precios' component={Auth(Precios, null)} />
+          <Route
+            exact
+            path='/Recetas/:id'
+            component={Auth(SingleRecipe, null)}
+          />
+          <Route exact path='/Catalogo' component={Auth(Catalogo, null)} />
         </Switch>
       </div>
       <Footer />
