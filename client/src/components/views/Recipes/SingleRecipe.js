@@ -5,7 +5,6 @@ export default class SingleRecipe extends Component {
     super(props)
     const id = this.props.match.params.id
     this.state = {
-      // recipe: recipeData,
       recipe: {},
       id,
       loading: true

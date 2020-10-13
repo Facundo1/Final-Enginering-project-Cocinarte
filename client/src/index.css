@@ -269,3 +269,37 @@ input.error {
   border-radius: 20px;
   margin-right: 20px;
 }
+
+/*Curses*/
+#cursos-Header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#cursos-Header h1,
+#cursos-Header h2 {
+  font-weight: bolder;
+  font-size: 40px;
+}
+
+.react-player {
+  width: 250px !important;
+  height: 250px !important;
+  margin-right: 30px !important;
+  margin-left: 15px !important;
+  -webkit-box-shadow: 0px 10px 43px -11px rgba(0, 0, 0, 0.88) !important;
+  -moz-box-shadow: 0px 10px 43px -11px rgba(0, 0, 0, 0.88) !important;
+  box-shadow: 0px 10px 43px -11px rgba(0, 0, 0, 0.88) !important;
+}
+
+.cook-Curse {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+}
+
+.subtitle-Curse {
+  font-weight: bolder;
+  margin-left: 15px;
+  font-size: 35px;
+}
