@@ -1,6 +1,4 @@
 import React, { Component } from 'react'
-import Header from '../LandingPage/Header'
-import { Link } from 'react-router-dom'
 
 export default class PricingHome extends Component {
   render() {

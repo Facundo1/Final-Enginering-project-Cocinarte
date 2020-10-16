@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-export default class SingleRecipe extends Component {
+import { connect } from 'react-redux'
+import { fetchRecipes } from '../../../_actions/recipe_actions'
+
+class SingleRecipe extends Component {
   constructor(props) {
     super(props)
     const id = this.props.match.params.id
@@ -11,28 +14,33 @@ export default class SingleRecipe extends Component {
     }
   }
   async componentDidMount() {
-    const url = `https://recipesapi.herokuapp.com/api/get?rId=${this.state.id}`
     try {
-      const response = await fetch(url)
-      const responseData = await response.json()
-      this.setState({
-        recipe: responseData.recipe,
-        loading: false
-      })
-    } catch (error) {
-      console.log(error)
+      await this.props.fetchRecipes()
+    } catch (e) {
+      console.log(e)
+    }
+  }
+
+  componentDidUpdate() {
+    console.log(this.props.recipes)
+    console.log(this.state)
+    if (!this.state.recipe.title && this.props.recipes) {
+      const detailRecipe = this.props.recipes.find(
+        x => x._id.toString() === this.state.id.toString()
+      )
+      console.log(detailRecipe)
+      if (detailRecipe) {
+        this.setState({
+          recipe: detailRecipe,
+          loading: false
+        })
+      }
     }
   }
 
   render() {
-    const {
-      image_url,
-      publisher,
-      publisher_url,
-      source_url,
-      title,
-      ingredients
-    } = this.state.recipe
+    const recipe = this.state.recipe
+    const Ingredients = recipe.Ingredients && recipe.Ingredients.split(',')
     if (this.state.loading) {
       return (
         <div className='container'>
@@ -61,7 +69,7 @@ export default class SingleRecipe extends Component {
               Volver
             </Link>
             <img
-              src={image_url}
+              src={recipe.photo}
               id='imgRecipe'
               className='d-block w-100'
               style={{ maxHeight: '30rem' }}
@@ -74,16 +82,18 @@ export default class SingleRecipe extends Component {
             className='col-10 mx-auto col-md-6 my-3'
           >
             <h1 className='text-uppercase'>
-              <strong>{title}</strong>
+              <strong>{recipe.title}</strong>
             </h1>
-            <h1 className='text-warning text-capitalize text-slanted'>
-              Proveedor {publisher}
-            </h1>
+
+            <h3 className='text-uppercase'>
+              <strong>{recipe.description}</strong>
+            </h3>
+
             <ul className='list-group mt-4'>
               <h2 className='mt-3 mb-4'>
                 <strong>Ingredientes</strong>
               </h2>
-              {ingredients.map((item, index) => {
+              {Ingredients.map((item, index) => {
                 return (
                   <li key={index} className='list-group-item text-slanted'>
                     {item}
@@ -91,9 +101,33 @@ export default class SingleRecipe extends Component {
                 )
               })}
             </ul>
+            <h3 className='text-uppercase'>
+              <strong>{recipe.Steps}</strong>
+            </h3>
+
+            <h3 className='text-uppercase'>
+              <strong>
+                {'Categoria de la receta:' +
+                  ' ' +
+                  ' ' +
+                  '[' +
+                  ' ' +
+                  recipe.Category +
+                  ' ' +
+                  ']'}
+              </strong>
+            </h3>
           </div>
         </div>
       </div>
     )
   }
 }
+
+const mapStateToProps = state => ({
+  recipes: state.recipe.items
+})
+
+export default connect(mapStateToProps, {
+  fetchRecipes
+})(SingleRecipe)

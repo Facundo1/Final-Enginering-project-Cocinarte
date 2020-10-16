@@ -1,0 +1,432 @@
+{
+"info": {
+    "_postman_id": "d1a01c15-c7d9-407e-af91-bd66572c2055",
+    "name": "CIL",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+},
+"item": [
+    {
+        "name": "PRODUCTS",
+        "item": [
+            {
+                "name": "Post Product",
+                "request": {
+                    "method": "POST",
+                    "header": [
+                        {
+                            "key": "Content-Type",
+                            "name": "Content-Type",
+                            "value": "multipart/form-data",
+                            "type": "text"
+                        },
+                        {
+                            "key": "Authorization",
+                            "value": "{{token}}",
+                            "type": "text"
+                        }
+                    ],
+                    "body": {
+                        "mode": "formdata",
+                        "formdata": [
+                            {
+                                "key": "image",
+                                "type": "file",
+                                "src": "/C:/Users/Usuario/Downloads/índice.jpg"
+                            },
+                            {
+                                "key": "name",
+                                "value": "Guitarra",
+                                "type": "text"
+                            },
+                            {
+                                "key": "description",
+                                "value": "Una gran guitarra",
+                                "type": "text"
+                            },
+                            {
+                                "key": "category",
+                                "value": "5e448ff35d510c2c8c52a5ec",
+                                "type": "text"
+                            },
+                            {
+                                "key": "price",
+                                "value": "1500",
+                                "type": "text"
+                            },
+                            {
+                                "key": "stock",
+                                "value": "100",
+                                "type": "text"
+                            },
+                            {
+                                "key": "isActive",
+                                "value": "true",
+                                "type": "text"
+                            }
+                        ],
+                        "options": {
+                            "raw": {
+                                "language": "json"
+                            }
+                        }
+                    },
+                    "url": {
+                        "raw": "http://localhost:4000/api/products",
+                        "protocol": "http",
+                        "host": [
+                            "localhost"
+                        ],
+                        "port": "4000",
+                        "path": [
+                            "products"
+                        ]
+                    }
+                },
+                "response": []
+            },
+            {
+                "name": "Patch Product",
+                "request": {
+                    "method": "PATCH",
+                    "header": [
+                        {
+                            "key": "Content-Type",
+                            "name": "Content-Type",
+                            "value": "application/json",
+                            "type": "text"
+                        },
+                        {
+                            "key": "Authorization",
+                            "value": "{{token}}",
+                            "type": "text"
+                        }
+                    ],
+                    "body": {
+                        "mode": "formdata",
+                        "formdata": [
+                            {
+                                "key": "Key",
+                                "value": "Value",
+                                "type": "text",
+                                "disabled": true
+                            },
+                            {
+                                "key": "Key",
+                                "value": "Value",
+                                "type": "text",
+                                "disabled": true
+                            }
+                        ],
+                        "options": {
+                            "raw": {
+                                "language": "json"
+                            }
+                        }
+                    },
+                    "url": {
+                        "raw": "http://localhost:4000/api/products/:productId/",
+                        "protocol": "http",
+                        "host": [
+                            "localhost"
+                        ],
+                        "port": "4000",
+                        "path": [
+                            "products",
+                            ":productId",
+                            ""
+                        ],
+                        "variable": [
+                            {
+                                "key": "productId",
+                                "value": "5e54ecd15c8fa8440c094773"
+                            }
+                        ]
+                    }
+                },
+                "response": []
+            },
+            {
+                "name": "Get Products",
+                "request": {
+                    "method": "GET",
+                    "header": [
+                        {
+                            "key": "Authorization",
+                            "value": "{{token}}",
+                            "type": "text"
+                        }
+                    ],
+                    "url": {
+                        "raw": "http://localhost:4000/api/products/",
+                        "protocol": "http",
+                        "host": [
+                            "localhost"
+                        ],
+                        "port": "4000",
+                        "path": [
+                            "products",
+                            ""
+                        ]
+                    }
+                },
+                "response": []
+            },
+            {
+                "name": "Delete Product",
+                "request": {
+                    "method": "DELETE",
+                    "header": [
+                        {
+                            "key": "Authorization",
+                            "value": "{{token}}",
+                            "type": "text"
+                        }
+                    ],
+                    "url": {
+                        "raw": "http://localhost:4000/api/products/:productId/",
+                        "protocol": "http",
+                        "host": [
+                            "localhost"
+                        ],
+                        "port": "4000",
+                        "path": [
+                            "products",
+                            ":productId",
+                            ""
+                        ],
+                        "variable": [
+                            {
+                                "key": "productId",
+                                "value": "5e4b5709a1a41b2c68e9807b"
+                            }
+                        ]
+                    }
+                },
+                "response": []
+            },
+            {
+                "name": "Get Active Products",
+                "request": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                        "raw": "http://localhost:4000/api/products/active",
+                        "protocol": "http",
+                        "host": [
+                            "localhost"
+                        ],
+                        "port": "4000",
+                        "path": [
+                            "products",
+                            "active"
+                        ]
+                    }
+                },
+                "response": []
+            }
+        ],
+        "protocolProfileBehavior": {}
+    },
+    {
+        "name": "CATEGORIES",
+        "item": [
+            {
+                "name": "Post Category",
+                "request": {
+                    "method": "POST",
+                    "header": [
+                        {
+                            "key": "Content-Type",
+                            "name": "Content-Type",
+                            "value": "application/json",
+                            "type": "text"
+                        },
+                        {
+                            "key": "Authorization",
+                            "value": "{{token}}",
+                            "type": "text"
+                        }
+                    ],
+                    "body": {
+                        "mode": "raw",
+                        "raw": "{\n\t\"name\":\"viento\",\n\t\"description\":\"Los instrumentos de viento o aerófonos son una familia de instrumentos musicales los cuales producen el sonido por la vibración de la masa de aire en su interior, sin necesidad de cuerdas o membranas porque solo requiere de la vibración del aire\"\n}",
+                        "options": {
+                            "raw": {
+                                "language": "json"
+                            }
+                        }
+                    },
+                    "url": {
+                        "raw": "http://localhost:4000/api/categories",
+                        "protocol": "http",
+                        "host": [
+                            "localhost"
+                        ],
+                        "port": "4000",
+                        "path": [
+                            "categories"
+                        ]
+                    }
+                },
+                "response": []
+            },
+            {
+                "name": "Get Categories",
+                "request": {
+                    "method": "GET",
+                    "header": [
+                        {
+                            "key": "",
+                            "value": "",
+                            "type": "text",
+                            "disabled": true
+                        }
+                    ],
+                    "url": {
+                        "raw": "http://localhost:4000/api/categories/",
+                        "protocol": "http",
+                        "host": [
+                            "localhost"
+                        ],
+                        "port": "4000",
+                        "path": [
+                            "categories",
+                            ""
+                        ]
+                    }
+                },
+                "response": []
+            },
+            {
+                "name": "Delete Category",
+                "request": {
+                    "method": "DELETE",
+                    "header": [
+                        {
+                            "key": "Content-Type",
+                            "name": "Content-Type",
+                            "value": "application/json",
+                            "type": "text"
+                        },
+                        {
+                            "key": "Authorization",
+                            "value": "{{token}}",
+                            "type": "text"
+                        }
+                    ],
+                    "body": {
+                        "mode": "raw",
+                        "raw": "{\n\n}",
+                        "options": {
+                            "raw": {
+                                "language": "json"
+                            }
+                        }
+                    },
+                    "url": {
+                        "raw": "http://localhost:4000/api/categories/:categoryId",
+                        "protocol": "http",
+                        "host": [
+                            "localhost"
+                        ],
+                        "port": "4000",
+                        "path": [
+                            "categories",
+                            ":categoryId"
+                        ],
+                        "variable": [
+                            {
+                                "key": "categoryId",
+                                "value": "5e4b1270556d9b2010caf4f"
+                            }
+                        ]
+                    }
+                },
+                "response": []
+            }
+        ],
+        "protocolProfileBehavior": {}
+    },
+    {
+        "name": "AUTH",
+        "item": [
+            {
+                "name": "Post User",
+                "request": {
+                    "method": "POST",
+                    "header": [
+                        {
+                            "key": "Content-Type",
+                            "name": "Content-Type",
+                            "value": "application/json",
+                            "type": "text"
+                        }
+                    ],
+                    "body": {
+                        "mode": "raw",
+                        "raw": "{\n\t\"fullName\": \"Administrador\",\n\t\"email\": \"admin@admin.com\",\n\t\"password\": \"admin\"\n}"
+                    },
+                    "url": {
+                        "raw": "http://localhost:4000/api/auth",
+                        "protocol": "http",
+                        "host": [
+                            "localhost"
+                        ],
+                        "port": "4000",
+                        "path": [
+                            "auth"
+                        ]
+                    }
+                },
+                "response": []
+            },
+            {
+                "name": "Login",
+                "event": [
+                    {
+                        "listen": "test",
+                        "script": {
+                            "id": "2458827a-839a-47a2-9829-53bd92e5c52d",
+                            "exec": [
+                                "var jsonData = JSON.parse(responseBody);\r",
+                                "postman.setEnvironmentVariable(\"token\", jsonData.token);"
+                            ],
+                            "type": "text/javascript"
+                        }
+                    }
+                ],
+                "request": {
+                    "method": "POST",
+                    "header": [
+                        {
+                            "key": "Content-Type",
+                            "name": "Content-Type",
+                            "value": "application/json",
+                            "type": "text"
+                        }
+                    ],
+                    "body": {
+                        "mode": "raw",
+                        "raw": "{\n\t\"email\": \"admin@admin.com\",\n\t\"password\": \"admin\"\n}"
+                    },
+                    "url": {
+                        "raw": "http://localhost:4000/api/auth/login",
+                        "protocol": "http",
+                        "host": [
+                            "localhost"
+                        ],
+                        "port": "4000",
+                        "path": [
+                            "auth",
+                            "login"
+                        ]
+                    }
+                },
+                "response": []
+            }
+        ],
+        "protocolProfileBehavior": {}
+    }
+],
+"protocolProfileBehavior": {}
+}
