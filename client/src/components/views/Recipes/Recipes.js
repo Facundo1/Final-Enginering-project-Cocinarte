@@ -1,8 +1,13 @@
 import React, { Component } from 'react'
 import RecipeList from './RecipesList'
 import Search from './Search'
+import { connect } from 'react-redux'
+import { fetchRecipes } from '../../../_actions/recipe_actions'
 
-export default class Recipes extends Component {
+class Recipes extends Component {
+  componentDidMount() {
+    this.props.fetchRecipes()
+  }
   render() {
     return (
       <>
@@ -13,3 +18,11 @@ export default class Recipes extends Component {
     )
   }
 }
+
+const mapStateToProps = state => ({
+  recipes: state.recipe.items
+})
+
+export default connect(mapStateToProps, {
+  fetchRecipes
+})(Recipes)

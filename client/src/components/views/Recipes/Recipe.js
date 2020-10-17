@@ -22,7 +22,3 @@ export default class Recipe extends Component {
     return <div className='listOfRecipes'>{recipesItems}</div>
   }
 }
-
-const mapStateToProps = state => ({
-  recipes: state.recipe.items
-})
