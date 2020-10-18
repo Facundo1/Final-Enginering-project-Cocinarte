@@ -213,6 +213,17 @@ input.error {
   align-items: center;
 }
 
+/*Search Ingredients*/
+.Search-Ingredients-Label {
+  font-size: 20px;
+  font-weight: bolder;
+}
+
+.Search-Ingredients-Textbox {
+  font-size: 20px;
+  font-weight: bolder;
+}
+
 /*Categories*/
 #text-Category {
   text-align: center;
@@ -226,20 +237,28 @@ input.error {
   justify-content: center;
 }
 
-.categoryButton {
-  background-color: black;
-  color: white;
-  font-size: 18px;
-  border-radius: 20px;
-  margin-right: 20px;
+#category-combobox-box {
+  display: flex;
+  flex-direction: row;
+  margin-left: 30px;
 }
 
-.categoryButton:hover {
-  background-color: rgb(0, 37, 246);
-  color: white;
-  font-size: 18px;
-  border-radius: 20px;
-  margin-right: 20px;
+#category-label {
+  font-size: 30px;
+  color: black;
+  font-weight: bolder;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+#category-combobox {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 25px;
+  border-radius: 10px;
+  border: 2px solid black;
+  font-weight: bolder;
 }
 
 /*Pricing*/

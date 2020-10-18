@@ -12,11 +12,9 @@ class RecipeList extends Component {
       <>
         <div className='container py-5'>
           {/* title */}
-          <div id='rowTitle'>
-            <div className='col-10 mx-auto col-md-6 text-center text-uppercase mb-3'>
-              <h1 className='text-slanted'>Algunas de nuestras recetas</h1>
-            </div>
-          </div>
+          <div id='rowTitle'></div>
+          <br></br>
+          <br></br>
           {/* end of title */}
           <div id='rowRecipes'>
             {this.props.recipes &&

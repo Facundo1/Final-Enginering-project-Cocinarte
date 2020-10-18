@@ -1,14 +1,17 @@
-import { FETCH_RECIPES, FILTER_RECIPES_BY_CATEGORY } from '../_actions/types'
+import {
+  FETCH_RECIPES,
+  FILTER_RECIPES_BY_CATEGORY,
+  SEARCH_RECIPES_BY_INGREDIENTS
+} from '../_actions/types'
 
 const initialState = {
   items: [],
   filteredItems: [],
-  category: '',
+  Category: '',
   error: null,
   isLoading: false,
   message: undefined,
-  adminActions: false,
-  productSelected: ''
+  searchedIngredients: ''
 }
 
 export default function(state = initialState, action) {
@@ -22,9 +25,16 @@ export default function(state = initialState, action) {
     case FILTER_RECIPES_BY_CATEGORY:
       return {
         ...state,
-        category: action.payload.category,
+        Category: action.payload.Category,
         filteredItems: action.payload.items
       }
+    case SEARCH_RECIPES_BY_INGREDIENTS: {
+      const { ingredients } = action
+      const Searched = state.recipe.items.filter(val =>
+        val.includes(ingredients)
+      )
+      return { ...state, ingredients, Searched }
+    }
     default:
       return state
   }

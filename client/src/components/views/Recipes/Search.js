@@ -1,8 +1,11 @@
 import React, { Component } from 'react'
+import searchIngredients from '../../../_actions/recipe_actions'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
 
 export default class Search extends Component {
   render() {
-    const { handleChange, handleSubmit, search } = this.props
+    const { search, value } = this.props
     return (
       <div id='containerRecipesText'>
         <div id='rowTittle'>
@@ -12,23 +15,25 @@ export default class Search extends Component {
               <strong className='text-orange'>|Cocinarte|</strong>
             </h1>
             <form className='mt-4'>
-              <label htmlFor='search' className='text-capitalize'>
+              <label
+                htmlFor='search'
+                className='text-capitalize Search-Ingredients-Label'
+              >
                 Ingrese lo ingredientes que tiene a mano separados por una coma
               </label>
-              <div className='input-group'>
+              <div className='input-group Search-Ingredients-Textbox'>
                 <input
                   type='text'
                   name='search'
                   className='form-control'
                   placeholder='Pollo,Cebolla,Zanahoria'
-                  value={search}
-                  onChange={handleChange}
+                  //onChange={e => this.searchIngredients(e.target.value)}
+                  //  value={value}
                 />
-                <div className='input-group-append'>
+                <div className='input-group-append Search-Ingredients-Button'>
                   <button
                     type='submit'
                     className='input-group-text bg-primary text-white'
-                    onClick={handleSubmit}
                   >
                     <i className='fas fa-search' />
                   </button>
@@ -41,3 +46,14 @@ export default class Search extends Component {
     )
   }
 }
+/*
+function mapStateToProps({ works }) {
+  return { value: works.value }
+}
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ searchIngredients }, dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Search)
+*/

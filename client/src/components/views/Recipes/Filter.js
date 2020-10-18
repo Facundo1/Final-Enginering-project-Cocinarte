@@ -5,11 +5,11 @@ import { filterRecipesByCategory } from '../../../_actions/recipe_actions'
 class Filter extends Component {
   render() {
     return (
-      <div className='col-md-4'>
-        <label>
-          Elegir Categoria
+      <div id='category-combobox-box'>
+        <label id='category-label'>
+          Categorias
           <select
-            className='form-control'
+            id='category-combobox'
             value={this.props.Category}
             onChange={e =>
               this.props.filterRecipesByCategory(
@@ -34,7 +34,7 @@ class Filter extends Component {
 const mapStateToProps = state => ({
   recipes: state.recipe.items,
   filteredRecipes: state.recipe.filteredItems,
-  Category: state.recipe.Category
+  Category: state.recipe.items.Category
 })
 
 export default connect(mapStateToProps, { filterRecipesByCategory })(Filter)
