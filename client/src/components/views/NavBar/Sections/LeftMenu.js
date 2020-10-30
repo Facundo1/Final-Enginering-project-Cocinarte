@@ -25,7 +25,7 @@ function LeftMenu(props) {
       <SubMenu title={<span>Herramientas</span>}>
         <MenuItemGroup title=''>
           <Menu.Item key='G_dieta'>
-            <a href='/Dieta'>Generador de dieta</a>
+            <a href='/AnalizadorBasal'>Analizador Metabolico</a>
           </Menu.Item>
           <Menu.Item key='C_profesionales'>
             <a href='/Cursos'>Cursos profesionales</a>

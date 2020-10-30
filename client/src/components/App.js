@@ -26,14 +26,15 @@ function App() {
           <Route exact path='/login' component={Auth(LoginPage, false)} />
           <Route exact path='/register' component={Auth(RegisterPage, false)} />
           <Route exact path='/Recetas' component={Auth(Recipes, null)} />
+          <Route exact path='/Catalogo' component={Auth(Catalogo, null)} />
           <Route exact path='/Precios' component={Auth(Precios, null)} />
+          <Route exact path='/AnalizadorBasal' component={Auth(Cursos, null)} />
           <Route exact path='/Cursos' component={Auth(Cursos, null)} />
           <Route
             exact
             path='/Recetas/:id'
             component={Auth(SingleRecipe, null)}
           />
-          <Route exact path='/Catalogo' component={Auth(Catalogo, null)} />
         </Switch>
       </div>
       <Footer />

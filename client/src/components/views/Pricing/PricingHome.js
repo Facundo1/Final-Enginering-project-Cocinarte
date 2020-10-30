@@ -22,7 +22,14 @@ export default class PricingHome extends Component {
             </p>
             <div id='productPremiumButtonContainer'>
               <a id='productPremiumButton' href='https://mpago.la/1kAMks2'>
-                Hacerme Premium
+                Pagar con MercadoPago
+              </a>
+              <br></br>
+              <a
+                id='productPremiumButton'
+                href='https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ZLJJQSFLGXGDW'
+              >
+                Pagar con PayPal
               </a>
             </div>
           </div>
