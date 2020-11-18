@@ -7,7 +7,7 @@ export default class Recipe extends Component {
     const recipesItems = (
       <div className='col-md-4' key={recipe._id}>
         <div className='thumbnail text-center'>
-          <img src={recipe.photo} alt='photo' />
+          <img src={`http://localhost:5000/${recipe.photo}`} alt='photo' />
           <p>{recipe.title}</p>
           <Link
             to={`/Recetas/${recipe._id}`}

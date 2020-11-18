@@ -22,13 +22,11 @@ class SingleRecipe extends Component {
   }
 
   componentDidUpdate() {
-    console.log(this.props.recipes)
-    console.log(this.state)
     if (!this.state.recipe.title && this.props.recipes) {
       const detailRecipe = this.props.recipes.find(
         x => x._id.toString() === this.state.id.toString()
       )
-      console.log(detailRecipe)
+
       if (detailRecipe) {
         this.setState({
           recipe: detailRecipe,

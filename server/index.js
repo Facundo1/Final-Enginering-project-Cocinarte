@@ -2,14 +2,14 @@ const express = require('express')
 const app = express()
 const path = require('path')
 const cors = require('cors')
-
+const router = require('./routes')
 const bodyParser = require('body-parser')
 const cookieParser = require('cookie-parser')
 
 const config = require('./config/key')
 
 const mongoose = require('mongoose')
-const connect = mongoose
+mongoose
   .connect(config.mongoURI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
@@ -26,10 +26,11 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 app.use(cookieParser())
 
-app.use('api/public/uploads', express.static('./public/uploads'))
-app.use('/api/users', require('./routes/users'))
-app.use('/api/recipes', require('./routes/Recipe'))
-
+//app.use('/public/uploads', express.static('public/uploads'))
+//app.use('/img',express.static(path.join(__dirname, 'public/uploads')));
+//app.use('/api/users', require('./routes/users'))
+//app.use('/api/recipes', require('./routes/Recipe'))
+app.use(router)
 // Serve static assets if in production
 if (process.env.NODE_ENV === 'production') {
   // Set static folder
