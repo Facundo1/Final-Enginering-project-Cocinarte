@@ -1,9 +1,8 @@
 import React, { Component } from 'react'
-import searchIngredients from '../../../_actions/recipe_actions'
 import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
+import { searchByIngredients } from '../../../_actions/recipe_actions'
 
-export default class Search extends Component {
+class Search extends Component {
   render() {
     const { search, value } = this.props
     return (
@@ -27,8 +26,12 @@ export default class Search extends Component {
                   name='search'
                   className='form-control'
                   placeholder='Pollo,Cebolla,Zanahoria'
-                  //onChange={e => this.searchIngredients(e.target.value)}
-                  //  value={value}
+                  onChange={e =>
+                    this.props.searchByIngredients(
+                      this.props.recipes,
+                      e.target.value
+                    )
+                  }
                 />
                 <div className='input-group-append Search-Ingredients-Button'>
                   <button
@@ -46,14 +49,11 @@ export default class Search extends Component {
     )
   }
 }
-/*
-function mapStateToProps({ works }) {
-  return { value: works.value }
-}
 
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ searchIngredients }, dispatch)
-}
+const mapStateToProps = state => ({
+  recipes: state.recipe.items,
+  filteredRecipes: state.recipe.filteredItems,
+  Ingredients: state.recipe.items.Ingredients
+})
 
-export default connect(mapStateToProps, mapDispatchToProps)(Search)
-*/
+export default connect(mapStateToProps, { searchByIngredients })(Search)

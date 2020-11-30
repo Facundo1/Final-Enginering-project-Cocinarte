@@ -11,7 +11,7 @@ const initialState = {
   error: null,
   isLoading: false,
   message: undefined,
-  searchedIngredients: ''
+  Ingredients: ''
 }
 
 export default function(state = initialState, action) {
@@ -29,11 +29,11 @@ export default function(state = initialState, action) {
         filteredItems: action.payload.items
       }
     case SEARCH_RECIPES_BY_INGREDIENTS: {
-      const { ingredients } = action
-      const Searched = state.recipe.items.filter(val =>
-        val.includes(ingredients)
-      )
-      return { ...state, ingredients, Searched }
+      return {
+        ...state,
+        Ingredients: action.payload.Ingredients,
+        filteredItems: action.payload.items
+      }
     }
     default:
       return state

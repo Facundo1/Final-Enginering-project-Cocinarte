@@ -25,6 +25,17 @@ export const filterRecipesByCategory = (recipes, category) => dispatch => {
   })
 }
 
-export const searchByIngredients = ingredients => dispatch => {
-  return dispatch({ type: SEARCH_RECIPES_BY_INGREDIENTS, payload: ingredients })
+export const searchByIngredients = (recipes, ingredients) => dispatch => {
+  return dispatch({
+    type: SEARCH_RECIPES_BY_INGREDIENTS,
+    payload: {
+      Ingredients: ingredients,
+      items:
+        ingredients === ''
+          ? recipes
+          : recipes.filter(a =>
+              a.Ingredients.toLowerCase().includes(ingredients.toLowerCase())
+            )
+    }
+  })
 }

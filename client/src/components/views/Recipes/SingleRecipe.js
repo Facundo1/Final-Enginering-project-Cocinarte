@@ -67,7 +67,7 @@ class SingleRecipe extends Component {
               Volver
             </Link>
             <img
-              src={recipe.photo}
+              src={`http://localhost:5000/${recipe.photo}`}
               id='imgRecipe'
               className='d-block w-100'
               style={{ maxHeight: '30rem' }}
