@@ -1,28 +1,27 @@
-import React, { Component } from 'react'
-import RecipeList from './RecipesList'
-import Search from './Search'
-import { connect } from 'react-redux'
-import { fetchRecipes } from '../../../_actions/recipe_actions'
+import React, { Component } from "react";
+import RecipeList from "./RecipesList";
+import Search from "./Search";
+import { connect } from "react-redux";
+import { fetchRecipes } from "../../../_actions/recipe_actions";
 
 class Recipes extends Component {
   componentDidMount() {
-    this.props.fetchRecipes()
+    this.props.fetchRecipes();
   }
   render() {
     return (
       <>
         <Search />
-        <RecipeList />
-        )}
+        <RecipeList />)
       </>
-    )
+    );
   }
 }
 
-const mapStateToProps = state => ({
-  recipes: state.recipe.filteredItems
-})
+const mapStateToProps = (state) => ({
+  recipes: state.recipe.filteredItems,
+});
 
 export default connect(mapStateToProps, {
-  fetchRecipes
-})(Recipes)
+  fetchRecipes,
+})(Recipes);
