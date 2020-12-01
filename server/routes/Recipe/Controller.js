@@ -16,7 +16,7 @@ const getById = (req, res) => {
 }
 const insert = (req, res) => {
   const recipe = new Recipe({
-    photo: 'public/uploads/Napolitana.png',
+    photo: 'public/uploads/guisoLentejas.jpg',
     title: req.body.title,
     description: req.body.description,
     Steps: req.body.Steps,

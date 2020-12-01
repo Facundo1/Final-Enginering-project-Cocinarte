@@ -23,6 +23,7 @@ class Filter extends Component {
             <option value='Vegetariano'>Vegetariano</option>
             <option value='Pizzas'>Pizzas</option>
             <option value='Pastas'>Pastas</option>
+            <option value='Ensaladas'>Ensaladas</option>
             <option value='Postres'>Postres</option>
           </select>
         </label>
