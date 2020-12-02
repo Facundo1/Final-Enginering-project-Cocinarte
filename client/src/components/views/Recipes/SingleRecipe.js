@@ -39,6 +39,7 @@ class SingleRecipe extends Component {
   render() {
     const recipe = this.state.recipe;
     const Ingredients = recipe.Ingredients && recipe.Ingredients.split(",");
+    const Steps = recipe.Steps && recipe.Steps.split("-");
     if (this.state.loading) {
       return (
         <div>
@@ -80,26 +81,27 @@ class SingleRecipe extends Component {
                 <strong>Ingredientes</strong>
               </h2>
               {Ingredients.map((item, index) => {
-                return <li key={index}>{item}</li>;
+                return <li className="font-weight-bold h5" key={index}>{item}</li>;
               })}
             </ul>
-            <h3 className="titlePasos rounded">Pasos</h3>
-            <h4 className="w-50 h-50 mt-3">
-              <strong>{recipe.Steps}</strong>
-            </h4>
+            <h3 className="titlePasos rounded mb-3"><strong>Pasos</strong></h3>
+            <ul>  
+            {Steps.map((item, index) => {
+                return <li className="font-weight-bold text-left h5" key={index}>{item}</li>;
+            })}
+            </ul>
+            
 
-            <h3>
+            <h3 className="titleCategoria rounded">
               <strong>
-                {"Categoria de la receta:" +
-                  " " +
-                  " " +
-                  "[" +
-                  " " +
-                  recipe.Category +
-                  " " +
-                  "]"}
+                {"Categoria de la receta"}
               </strong>
             </h3>
+            <h4>
+              <strong>
+                {recipe.Category}
+              </strong>
+            </h4>
           </div>
         </div>
       </div>

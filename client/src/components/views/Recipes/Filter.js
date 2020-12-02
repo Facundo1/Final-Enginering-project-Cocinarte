@@ -6,8 +6,8 @@ class Filter extends Component {
   render() {
     return (
       <div id='category-combobox-box'>
-        <label id='category-label'>
-          Categorias
+        <h1>Categoria</h1>
+        <label className="ml-3 mt-2 text-center">
           <select
             id='category-combobox'
             value={this.props.Category}

@@ -179,7 +179,7 @@ input.error {
   border: none;
 }
 .titleIngredientes{
-  width: 250px;
+  width: 300px;
   height: 38px;
   background-color:  rgb(140, 225, 236);
   margin-top: 30px;
@@ -187,7 +187,16 @@ input.error {
   border: none;
 }
 .titlePasos{
-  width: 250px;
+  width: 300px;
+  height: 35px;
+  margin-left:20px;
+  margin-top: 20px;
+  background-color:  rgb(140, 225, 236);
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  border: none;
+}
+.titleCategoria{
+  width: 300px;
   height: 35px;
   margin-left:20px;
   margin-top: 20px;
@@ -250,13 +259,6 @@ input.error {
   margin-left: 30px;
 }
 
-#category-label {
-  font-size: 30px;
-  color: black;
-  font-weight: bolder;
-  border-radius: 10px;
-  margin-bottom: 10px;
-}
 
 #category-combobox {
   display: flex;
