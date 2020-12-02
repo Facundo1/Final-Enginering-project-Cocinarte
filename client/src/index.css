@@ -236,6 +236,12 @@ input.error {
   font-size: 20px;
   font-weight: bolder;
 }
+.serchCursos{
+  width: 700px;
+  font-size: 20px;
+  font-weight: bolder;
+}
+
 .spaceBetween{
   margin:15px;
 }
@@ -348,11 +354,24 @@ input.error {
 .cook-Curse {
   display: flex;
   flex-direction: row;
-  justify-content: left;
+  justify-content: center;
+}
+.containerVideos{
+width: 95%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin: auto;
+  margin-bottom: 100px;
 }
 
 .subtitle-Curse {
   font-weight: bolder;
   margin-left: 15px;
   font-size: 35px;
+  text-align: center;
+  width: 100%;
+  background-color:rgb(23, 162, 184);
+
 }

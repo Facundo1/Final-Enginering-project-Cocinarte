@@ -39,7 +39,8 @@ function RegisterPage(props) {
         lastname: '',
         name: '',
         password: '',
-        confirmPassword: ''
+        confirmPassword: '',
+        accountType:"Cuenta gratuita"
       }}
       validationSchema={Yup.object().shape({
         name: Yup.string().required('Nombre requerido'),

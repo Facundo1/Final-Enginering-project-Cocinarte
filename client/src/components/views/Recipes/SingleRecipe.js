@@ -55,11 +55,6 @@ class SingleRecipe extends Component {
       <div>
         <div>
           <div id="RecipeImageContainer">
-            {/* <Link to="/Recetas" id="btnVolver">
-              <button className="btn btn-info  text-white rounded h5">
-                Volver
-              </button>
-            </Link> */}
             <h3 className="titleReceta rounded mt-3">
               <strong>{recipe.title}</strong>
             </h3>
