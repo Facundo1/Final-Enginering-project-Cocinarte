@@ -36,14 +36,14 @@ function RegisterPage(props) {
     <Formik
       initialValues={{
         email: '',
-        lastName: '',
+        lastname: '',
         name: '',
         password: '',
         confirmPassword: ''
       }}
       validationSchema={Yup.object().shape({
         name: Yup.string().required('Nombre requerido'),
-        lastName: Yup.string().required('Apellido requerido'),
+        lastname: Yup.string().required('Apellido requerido'),
         email: Yup.string()
           .email('Email invalido')
           .required('Email requerido'),
@@ -61,7 +61,8 @@ function RegisterPage(props) {
             password: values.password,
             name: values.name,
             lastname: values.lastname,
-            image: `http://gravatar.com/avatar/${moment().unix()}?d=identicon`
+            image: `http://gravatar.com/avatar/${moment().unix()}?d=identicon`,
+            accountType:"Cuenta gratuita"
           }
 
           dispatch(registerUser(dataToSubmit)).then(response => {
@@ -117,20 +118,20 @@ function RegisterPage(props) {
 
               <Form.Item required label='Apellido'>
                 <Input
-                  id='lastName'
+                  id='lastname'
                   placeholder='Ingrese su apellido'
                   type='text'
-                  value={values.lastName}
+                  value={values.lastname}
                   onChange={handleChange}
                   onBlur={handleBlur}
                   className={
-                    errors.lastName && touched.lastName
+                    errors.lastname && touched.lastname
                       ? 'text-input error'
                       : 'text-input'
                   }
                 />
-                {errors.lastName && touched.lastName && (
-                  <div className='input-feedback'>{errors.lastName}</div>
+                {errors.lastname && touched.lastname && (
+                  <div className='input-feedback'>{errors.lastname}</div>
                 )}
               </Form.Item>
 
