@@ -13,7 +13,7 @@ import Catalogo from './views/Recipes/Catalog'
 import Precios from './views/Pricing/PricingHome'
 import Cursos from './views/Cursos/Cursos'
 
-//null   Anyone Can go inside
+//nulll   Anyone Can go inside
 //true   only logged in user can go inside
 //false  logged in user can't go inside
 
