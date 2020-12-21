@@ -26,16 +26,32 @@ export const filterRecipesByCategory = (recipes, category) => dispatch => {
 }
 
 export const searchByIngredients = (recipes, ingredients) => dispatch => {
+  const correctWroteIngredients = ingredients.replace(/\s/g, '')
+  const ingredientList = correctWroteIngredients
+    ? correctWroteIngredients.split(',')
+    : []
+  console.log(ingredientList)
+  let b, recipeList
+  if (recipes.length) {
+    recipeList = recipes.filter(recipe => {
+      b = false
+      ingredientList.forEach(ingredient => {
+        if (
+          ingredient &&
+          recipe.Ingredients.toLowerCase().includes(ingredient.toLowerCase())
+        ) {
+          b = true
+        }
+      })
+      return b
+    })
+  }
+
   return dispatch({
     type: SEARCH_RECIPES_BY_INGREDIENTS,
     payload: {
       Ingredients: ingredients,
-      items:
-        ingredients === ''
-          ? recipes
-          : recipes.filter(a =>
-              a.Ingredients.toLowerCase().includes(ingredients.toLowerCase())
-            )
+      items: recipeList || []
     }
   })
 }
