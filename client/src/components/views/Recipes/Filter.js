@@ -6,9 +6,9 @@ class Filter extends Component {
   render() {
     return (
       <div id='category-combobox-box'>
-        <h1>Categoria</h1>
-        <label className="ml-3 mt-2 text-center">
+        <label className="tex-center">
           <select
+          className="form-control"
             id='category-combobox'
             value={this.props.Category}
             onChange={e =>
@@ -18,7 +18,7 @@ class Filter extends Component {
               )
             }
           >
-            <option value=''>Todas</option>
+            <option value=''>Elige una categoria</option>
             <option value='Carnes'>Carnes</option>
             <option value='Vegetariano'>Vegetariano</option>
             <option value='Pizzas'>Pizzas</option>

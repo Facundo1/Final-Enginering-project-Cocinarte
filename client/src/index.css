@@ -262,6 +262,7 @@ input.error {
 #category-combobox-box {
   display: flex;
   flex-direction: row;
+  justify-content: center;
   margin-left: 30px;
 }
 
@@ -269,10 +270,9 @@ input.error {
 #category-combobox {
   display: flex;
   flex-direction: row;
-  align-items: center;
-  font-size: 25px;
-  border-radius: 10px;
-  border: 2px solid black;
+  justify-content: center;
+  width: 500px;
+  font-size:17px ;
   font-weight: bolder;
 }
 
@@ -374,4 +374,16 @@ width: 95%;
   width: 100%;
   background-color:rgb(23, 162, 184);
 
+}
+.containerLogin{
+  display: flex;
+  flex-direction: row;
+}
+.loginName, .loginAccountType{
+  margin: 10px;
+  height: 40px;
+}
+
+.containerLogout{
+  margin-bottom: -2px;
 }
