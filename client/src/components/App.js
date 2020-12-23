@@ -12,6 +12,7 @@ import SingleRecipe from './views/Recipes/SingleRecipe'
 import Catalogo from './views/Recipes/Catalog'
 import Precios from './views/Pricing/PricingHome'
 import Cursos from './views/Cursos/Cursos'
+import ActivarCuenta from './views/Pricing/ActivateAccount'
 
 //null   Anyone Can go inside
 //true   only logged in user can go inside
@@ -30,7 +31,12 @@ function App() {
           <Route exact path='/Catalogo' component={Auth(Catalogo, null)} />
           <Route exact path='/Precios' component={Auth(Precios, null)} />
           <Route exact path='/AnalizadorBasal' component={Auth(Cursos, null)} />
-          <Route exact path='/Cursos' component={Auth(Cursos, null)} />
+          <Route exact path='/Cursos' component={Auth(Cursos, true)} />
+          <Route
+            exact
+            path='/ActivarCuenta'
+            component={Auth(ActivarCuenta, true)}
+          />
           <Route
             exact
             path='/Recetas/:id'

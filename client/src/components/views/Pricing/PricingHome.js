@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 
 export default class PricingHome extends Component {
   render() {
@@ -31,9 +32,16 @@ export default class PricingHome extends Component {
               >
                 Pagar con PayPal
               </a>
+              <br></br>
+              <div>
+                <Link to='/ActivarCuenta' id='productPremiumButton'>
+                  Ir a activar mi cuenta
+                </Link>
+              </div>
             </div>
           </div>
         </div>
+        <br></br>
       </div>
     )
   }
