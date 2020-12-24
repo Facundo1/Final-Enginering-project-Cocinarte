@@ -10,6 +10,7 @@ import Home from './views/LandingPage/Home'
 import Recipes from './views/Recipes/Recipes'
 import SingleRecipe from './views/Recipes/SingleRecipe'
 import Catalogo from './views/Recipes/Catalog'
+import FavoritePage from './views/Recipes/FavoritePage'
 import Precios from './views/Pricing/PricingHome'
 import Cursos from './views/Cursos/Cursos'
 import ActivarCuenta from './views/Pricing/ActivateAccount'
@@ -32,6 +33,11 @@ function App() {
           <Route exact path='/Precios' component={Auth(Precios, null)} />
           <Route exact path='/AnalizadorBasal' component={Auth(Cursos, null)} />
           <Route exact path='/Cursos' component={Auth(Cursos, true)} />
+          <Route
+            exact
+            path='/FavoritePage'
+            component={Auth(FavoritePage, null)}
+          />
           <Route
             exact
             path='/ActivarCuenta'
