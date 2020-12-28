@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react'
-import { useSelector } from 'react-redux'
-import axios from 'axios'
+import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import axios from "axios";
 
 function Favorite(props) {
-  const user = useSelector(state => state.user)
-  const [favoriteNumber, setFavoriteNumber] = useState(0)
-  const [Favorited, setFavorited] = useState(false)
+  const user = useSelector((state) => state.user);
+  const [favoriteNumber, setFavoriteNumber] = useState(0);
+  const [Favorited, setFavorited] = useState(false);
 
   const variable = {
     userFrom: props.userFrom,
@@ -15,64 +15,70 @@ function Favorite(props) {
     recipeDescription: props.recipeInfo.description,
     recipeSteps: props.recipeInfo.Steps,
     recipeIngredients: props.recipeInfo.Ingredients,
-    recipeCategory: props.recipeInfo.Category
-  }
+    recipeCategory: props.recipeInfo.Category,
+  };
   useEffect(() => {
-    console.log(variable)
+    console.log(variable);
 
     if (user && user.userData && user.userData.isAuth) {
-      axios.post('/api/favorite/favoriteNumber', variable).then(response => {
+      axios.post("/api/favorite/favoriteNumber", variable).then((response) => {
         if (response.data.success) {
-          setFavoriteNumber(response.data.FavoriteNumber)
+          setFavoriteNumber(response.data.FavoriteNumber);
         } else {
-          alert('Failed to get number')
+          alert("Failed to get number");
         }
-      })
+      });
 
-      axios.post('/api/favorite/favorited', variable).then(response => {
+      axios.post("/api/favorite/favorited", variable).then((response) => {
         if (response.data.success) {
-          setFavorited(response.data.favorited)
+          setFavorited(response.data.favorited);
         } else {
-          alert('failed to get favorite info')
+          alert("failed to get favorite info");
         }
-      })
+      });
     }
-  }, [])
+  }, []);
   ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-  const onClickFavorite = variable => {
+  const onClickFavorite = (variable) => {
     if (Favorited) {
       axios
-        .post('/api/favorite/removeFromFavorite', variable)
-        .then(response => {
+        .post("/api/favorite/removeFromFavorite", variable)
+        .then((response) => {
           if (response.data.success) {
-            setFavoriteNumber(favoriteNumber - 1)
-            setFavorited(!Favorited)
+            setFavoriteNumber(favoriteNumber - 1);
+            setFavorited(!Favorited);
           } else {
-            alert('Failed to remove form favorite')
+            alert("Failed to remove form favorite");
           }
-        })
+        });
     } else {
-      axios.post('/api/favorite/addToFavorite', variable).then(response => {
+      axios.post("/api/favorite/addToFavorite", variable).then((response) => {
         if (response.data.success) {
-          setFavoriteNumber(favoriteNumber + 1)
-          setFavorited(!Favorited)
+          setFavoriteNumber(favoriteNumber + 1);
+          setFavorited(!Favorited);
         } else {
-          alert('Failed to add Favorites')
+          alert("Failed to add Favorites");
         }
-      })
+      });
     }
-  }
-  console.log(Favorited)
+  };
+  console.log(Favorited);
   return (
-    <div>
+    <div className="">
       {user && user.userData && user.userData.isAuth && (
-        <button onClick={() => onClickFavorite(variable)}>
-          {Favorited ? 'borrar de favoritos' : 'Agregar'}
-        </button>
+        <div className="btnFavorito d-flex justify-content-center flex-row mt-5">
+          <button
+            className="border-0 rounded btn btn-info"
+            onClick={() => onClickFavorite(variable)}
+          >
+            {Favorited ? "borrar de favoritos" : "Agregar a favorito"}
+          </button>
+        </div>
       )}
-      <p>Personas que agregaron a favoritos esta receta: {favoriteNumber}</p>
+
+      <p className="textoFavorito d-flex justify-content-center flex-row mt-2">Personas que agregaron a favoritos esta receta: {favoriteNumber}</p>
     </div>
-  )
+  );
 }
 
-export default Favorite
+export default Favorite;

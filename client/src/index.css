@@ -387,3 +387,10 @@ width: 95%;
 .containerLogout{
   margin-bottom: -2px;
 }
+.btnFavorito{
+  margin-left:-120px !important;
+}
+
+.textoFavorito{
+  margin-left:-120px !important;
+}

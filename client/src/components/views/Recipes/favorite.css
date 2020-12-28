@@ -14,3 +14,8 @@ th {
 tr:nth-child(even) {
   background-color: #dddddd;
 }
+.btnFvorito{
+  display: flex;
+  justify-content: center;
+  margin-left: 75px;;
+}
