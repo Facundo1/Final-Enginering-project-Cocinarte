@@ -14,6 +14,8 @@ import FavoritePage from './views/Recipes/FavoritePage'
 import Precios from './views/Pricing/PricingHome'
 import Cursos from './views/Cursos/Cursos'
 import ActivarCuenta from './views/Pricing/ActivateAccount'
+import OlvideContraseña from './views/LoginPage/ForgotPassword'
+import ResetPage from './views/LoginPage/ResetPassword'
 
 //null   Anyone Can go inside
 //true   only logged in user can go inside
@@ -28,6 +30,12 @@ function App() {
           <Route exact path='/' component={Auth(Home, null)} />
           <Route exact path='/login' component={Auth(LoginPage, false)} />
           <Route exact path='/register' component={Auth(RegisterPage, false)} />
+          <Route
+            exact
+            path='/olvideMiContraseña'
+            component={Auth(OlvideContraseña, false)}
+          />
+          <Route exact path='/reset' component={Auth(ResetPage, false)} />
           <Route exact path='/Recetas' component={Auth(Recipes, null)} />
           <Route exact path='/Catalogo' component={Auth(Catalogo, null)} />
           <Route exact path='/Precios' component={Auth(Precios, null)} />

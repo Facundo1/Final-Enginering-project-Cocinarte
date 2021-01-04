@@ -154,7 +154,7 @@ function LoginPage(props) {
                 </Checkbox>
                 <a
                   className='login-form-forgot'
-                  href='/reset_user'
+                  href='/olvideMiContraseña'
                   style={{ float: 'right' }}
                 >
                   Olvide mi contraseña

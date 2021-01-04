@@ -2,7 +2,19 @@ const express = require('express')
 const router = express.Router()
 const { User } = require('../models/User')
 const { auth } = require('../middleware/auth')
-
+const {
+  createUser,
+  getUser,
+  updateUser
+} = require('../middleware/ResetPasswordFunctions')
+const {
+  getResetRequest,
+  createResetRequest
+} = require('../middleware/ResetPasswordFunctions')
+const sendResetLink = require('../middleware/SendMails')
+const bcrypt = require('bcrypt')
+const uuidv1 = require('uuidv1')
+const nodemailer = require('nodemailer')
 //=================================
 //             User
 //=================================
@@ -70,6 +82,76 @@ router.get('/logout', auth, (req, res) => {
       })
     }
   )
+})
+
+router.post('/forgot', (req, res) => {
+  const thisUser = req.body.email
+  console.log('Email que llega:', thisUser)
+  if (thisUser) {
+    const id = uuidv1()
+    const request = {
+      id,
+      email: thisUser
+    }
+    console.log('Despues del if:', request)
+    createResetRequest(request)
+    sendResetLink(thisUser, id)
+  }
+  res.status(200).json()
+})
+
+router.patch('/reset', (req, res) => {
+  const thisRequest = req.body.id
+  if (thisRequest) {
+    const user = getUser(thisRequest.email)
+    bcrypt.hash(req.body.password, 10).then(hashed => {
+      user.password = hashed
+      updateUser(user)
+      res.status(204).json()
+    })
+  } else {
+    res.status(404).json()
+  }
+})
+
+router.post('/nodeMailerTest', (req, res) => {
+  const thisUser = req.body.email
+  console.log('Email que llega:', thisUser)
+  const transporter = nodemailer.createTransport({
+    host: 'smtp.gmail.com',
+    post: 587,
+    secure: false,
+    auth: {
+      user: 'soporte.cocinarte@gmail.com',
+      pass: 'Pingoso123'
+    }
+  })
+  const mailOptions = {
+    from: 'Remitente',
+    to: thisUser,
+    subject: 'Recuperacion de contraseña |Cocinarte|',
+    text:
+      'To reset your password, please click on this link: http://localhost:3000/reset'
+  }
+  transporter.sendMail(mailOptions, (error, info) => {
+    if (error) {
+      res.status(500).send(error.message)
+    } else {
+      console.log('Email enviado')
+      res.status(200).jsonp(req.body)
+    }
+  })
+})
+
+router.post('/mailValidation', (req, res) => {
+  const thisUser = req.body.email
+  User.findOne({ email: thisUser }, (err, user) => {
+    if (!user)
+      return res.json({
+        loginSuccess: false,
+        message: 'Mail cannot found'
+      })
+  })
 })
 
 module.exports = router

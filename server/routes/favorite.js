@@ -16,6 +16,12 @@ router.post('/favorited', auth, (req, res) => {
   return getFind('/favorited', auth, req, res)
 })
 
+router.post('/getFavoredRecipe', (req, res) => {
+  return getFind('/getFavoredRecipe', auth, req, res)
+})
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 router.post('/addToFavorite', auth, (req, res) => {
   console.log(req.body)
   const favorite = new Favorite({
@@ -43,10 +49,6 @@ router.post('/removeFromFavorite', auth, (req, res) => {
     if (err) return res.status(400).json({ success: false, err })
     res.status(200).json({ success: true, doc })
   })
-})
-
-router.post('/getFavoredRecipe', (req, res) => {
-  return getFind('/getFavoredRecipe', auth, req, res)
 })
 
 module.exports = router
