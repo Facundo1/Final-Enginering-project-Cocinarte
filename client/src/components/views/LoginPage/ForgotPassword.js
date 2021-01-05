@@ -30,27 +30,35 @@ const ForgotPassword = () => {
   let body
   if (emailSent) {
     body = (
-      <span>
-        Se enviara un email a la casilla de tu correo para restablecer la
-        contraseña.
-      </span>
+      <div className='mt-5'>
+        <h5 className='d-flex justify-content-center'>
+          Se enviara un email a la casilla de tu correo para restablecer la
+          contraseña.
+        </h5>
+      </div>
     )
   } else {
     body = (
-      <form onSubmit={submitHandler}>
-        <input
-          name='email'
-          placeholder='email'
-          type='text'
-          value={email}
-          onChange={e => setEmail(e.target.value)}
-        />
-
-        <button>Enviar email</button>
+      <form className='formSendMail mt-5' onSubmit={submitHandler}>
+        <h3 className='text-center'>
+          Ingrese su correo electronico para recuperar su contraseña
+        </h3>
+        <div className='d-flex justify-content-center mt-4'>
+          <input
+            className='text-center w-25 form-control form-control-sm'
+            name='email'
+            placeholder='Email'
+            type='text'
+            value={email}
+            onChange={e => setEmail(e.target.value)}
+          />
+        </div>
+        <div className='d-flex justify-content-center'>
+          <button className='mt-3 btn btn-info'>Enviar email</button>
+        </div>
       </form>
     )
   }
-
   return body
 }
 
