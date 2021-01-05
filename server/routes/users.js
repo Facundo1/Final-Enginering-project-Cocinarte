@@ -2,18 +2,7 @@ const express = require('express')
 const router = express.Router()
 const { User } = require('../models/User')
 const { auth } = require('../middleware/auth')
-const {
-  createUser,
-  getUser,
-  updateUser
-} = require('../middleware/ResetPasswordFunctions')
-const {
-  getResetRequest,
-  createResetRequest
-} = require('../middleware/ResetPasswordFunctions')
-const sendResetLink = require('../middleware/SendMails')
-const bcrypt = require('bcrypt')
-const uuidv1 = require('uuidv1')
+
 const nodemailer = require('nodemailer')
 const generator = require('generate-password')
 //=================================
@@ -85,48 +74,10 @@ router.get('/logout', auth, (req, res) => {
   )
 })
 
-router.post('/forgot', (req, res) => {
-  const thisUser = req.body.email
-  console.log('Email que llega:', thisUser)
-  if (thisUser) {
-    const id = uuidv1()
-    const request = {
-      id,
-      email: thisUser
-    }
-    console.log('Despues del if:', request)
-    createResetRequest(request)
-    sendResetLink(thisUser, id)
-  }
-  res.status(200).json()
-})
-
-router.put('/reset', (req, res) => {
-  User.findOne({ id: req.body._id, pass: req.body.password }, (err, user) => {
-    console.log('User send data to update', _id, password)
-    if (user) {
-      const thisUser = req.body.password
-      bcrypt.hash(thisUser, 10).then(hashed => {
-        user.update(err => {
-          thisUser = hashed
-          if (err) res.send({ msg: 'Cant`t save the user', error: err })
-          res.send({ msg: 'user saved', data: user })
-        })
-      })
-    } else {
-      return res.json({
-        loginSuccess: false,
-        message: 'Auth failed, email not found'
-      })
-    }
-  })
-})
-
-router.post('/nodeMailerTest', (req, res) => {
+router.post('/sendMail', (req, res) => {
   User.findOne({ email: req.body.email }, (err, user) => {
-    console.log(user)
     if (!user)
-      return res.json({
+      return res.status(500).send({
         loginSuccess: false,
         message: 'Auth failed, email not found'
       })
@@ -137,15 +88,18 @@ router.post('/nodeMailerTest', (req, res) => {
       })
       const thisUser = req.body.email
 
-      console.log('Email que llega:', thisUser, newPassword)
-      bcrypt.hash(newPassword, 10).then(hashed => {
-        User.update(err => {
-          user._id = req.body.id
-          user.password = newPassword
-          if (err) res.send({ msg: 'Cant`t save the user', error: err })
-          res.send({ msg: 'user saved', data: user })
+      User.update(err => {
+        user.password = newPassword
+
+        user.save((err, doc) => {
+          if (err) return res.json({ success: false, err })
+          return res.status(200).json({
+            success: true,
+            msg: 'Mongo Modificado'
+          })
         })
       })
+
       const transporter = nodemailer.createTransport({
         host: 'smtp.gmail.com',
         post: 587,
@@ -159,7 +113,7 @@ router.post('/nodeMailerTest', (req, res) => {
         from: 'Remitente',
         to: thisUser,
         subject: 'Recuperacion de contraseña |Cocinarte|',
-        text: `Tu nueva contraseña es ${newPassword}`
+        text: `Tu nueva contraseña es ${newPassword} es recomendable que la cambies en tu proximo inicio de sesion`
       }
       transporter.sendMail(mailOptions, (error, info) => {
         if (error) {
@@ -170,17 +124,6 @@ router.post('/nodeMailerTest', (req, res) => {
         }
       })
     }
-  })
-})
-
-router.post('/mailValidation', (req, res) => {
-  const thisUser = req.body.email
-  User.findOne({ email: thisUser }, (err, user) => {
-    if (!user)
-      return res.json({
-        loginSuccess: false,
-        message: 'Mail cannot found'
-      })
   })
 })
 

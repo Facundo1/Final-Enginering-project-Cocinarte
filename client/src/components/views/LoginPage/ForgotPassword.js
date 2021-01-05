@@ -12,19 +12,14 @@ const ForgotPassword = () => {
       email
     }
 
-    axios
-      .post('http://localhost:5000/api/users/nodeMailerTest', body)
-      .then(res => {
-        if (res.loginSuccess !== false) {
-          console.log(
-            'Email enviado hacia la casilla de correo',
-            res.loginSuccess
-          )
-        } else {
-          alert('ERROR DE EMAIL')
-        }
+    axios.post('http://localhost:5000/api/users/sendMail', body).then(res => {
+      if (res.loginSuccess !== false) {
+        console.log('Email enviado hacia la casilla de correo')
         setEmailSent(true)
-      })
+      } else {
+        alert('EMAIL NO COINCIDE CON LA BASE DE DATOS')
+      }
+    })
   }
 
   let body
