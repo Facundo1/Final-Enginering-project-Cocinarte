@@ -127,4 +127,45 @@ router.post('/sendMail', (req, res) => {
   })
 })
 
+router.post('/reset', (req, res) => {
+  const thisPass = req.body.password
+  const currentUser = req.body.user
+  console.log(thisPass)
+  User.findOneAndUpdate(
+    { _id: req.user._id },
+    { password: thisPass },
+    user.save((err, doc) => {
+      if (err) return res.json({ success: false, err })
+      return res.status(200).json({
+        success: true,
+        msg: 'Mongo Modificado'
+      })
+    })
+  )
+})
+
+router.post('/reset2', (req, res) => {
+  const thisPass = req.body.password
+  User.findOne({ password: thisPass }, (err, user) => {
+    if (!user)
+      return res.status(500).send({
+        loginSuccess: false,
+        message: 'Auth failed, email not found'
+      })
+    else {
+      User.update(err => {
+        user.password = thisPass
+
+        user.save((err, doc) => {
+          if (err) return res.json({ success: false, err })
+          return res.status(200).json({
+            success: true,
+            msg: 'Mongo Modificado'
+          })
+        })
+      })
+    }
+  })
+})
+
 module.exports = router

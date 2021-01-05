@@ -72,7 +72,7 @@ input.error {
   font-size: 78px !important;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
     'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  background-color:transparent;
+  background-color: transparent;
   border-radius: 10px;
 }
 
@@ -89,13 +89,18 @@ input.error {
   padding: 10px;
 }
 
+#userAvatar {
+  width: 50%;
+  height: 50%;
+}
+
 /*Recipes list*/
 #containerRecipesText {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.containerSerch{
+.containerSerch {
   display: flex;
   flex-direction: row;
 }
@@ -163,44 +168,44 @@ input.error {
 }
 
 /*Details of recipe*/
- #RecipeImageContainer {
+#RecipeImageContainer {
   display: flex !important;
   flex-direction: column !important;
   text-align: center;
   align-items: center;
   margin-top: 50px;
   width: 89%;
-} 
-.titleReceta{
+}
+.titleReceta {
   width: 400px;
   height: 35px;
   background-color: rgb(140, 225, 236);
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   border: none;
 }
-.titleIngredientes{
+.titleIngredientes {
   width: 300px;
   height: 38px;
-  background-color:  rgb(140, 225, 236);
+  background-color: rgb(140, 225, 236);
   margin-top: 30px;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   border: none;
 }
-.titlePasos{
+.titlePasos {
   width: 300px;
   height: 35px;
-  margin-left:20px;
+  margin-left: 20px;
   margin-top: 20px;
-  background-color:  rgb(140, 225, 236);
+  background-color: rgb(140, 225, 236);
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   border: none;
 }
-.titleCategoria{
+.titleCategoria {
   width: 300px;
   height: 35px;
-  margin-left:20px;
+  margin-left: 20px;
   margin-top: 20px;
-  background-color:  rgb(140, 225, 236);
+  background-color: rgb(140, 225, 236);
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   border: none;
 }
@@ -214,7 +219,7 @@ input.error {
   -moz-box-shadow: 0px 10px 43px -11px rgba(0, 0, 0, 0.88);
   box-shadow: 0px 10px 43px -11px rgba(0, 0, 0, 0.88);
 }
- #DetallesRecetaContainer {
+#DetallesRecetaContainer {
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -222,7 +227,6 @@ input.error {
   margin-right: 190px;
   align-items: center;
 }
-
 
 /*Search Ingredients*/
 .Search-Ingredients-Label {
@@ -236,14 +240,14 @@ input.error {
   font-size: 20px;
   font-weight: bolder;
 }
-.serchCursos{
+.serchCursos {
   width: 700px;
   font-size: 20px;
   font-weight: bolder;
 }
 
-.spaceBetween{
-  margin:15px;
+.spaceBetween {
+  margin: 15px;
 }
 
 /*Categories*/
@@ -266,13 +270,12 @@ input.error {
   margin-left: 30px;
 }
 
-
 #category-combobox {
   display: flex;
   flex-direction: row;
   justify-content: center;
   width: 500px;
-  font-size:17px ;
+  font-size: 17px;
   font-weight: bolder;
 }
 
@@ -356,8 +359,8 @@ input.error {
   flex-direction: row;
   justify-content: center;
 }
-.containerVideos{
-width: 95%;
+.containerVideos {
+  width: 95%;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -372,25 +375,25 @@ width: 95%;
   font-size: 35px;
   text-align: center;
   width: 100%;
-  background-color:rgb(23, 162, 184);
-
+  background-color: rgb(23, 162, 184);
 }
-.containerLogin{
+.containerLogin {
   display: flex;
   flex-direction: row;
 }
-.loginName, .loginAccountType{
+.loginName,
+.loginAccountType {
   margin: 10px;
   height: 40px;
 }
 
-.containerLogout{
+.containerLogout {
   margin-bottom: -2px;
 }
-.btnFavorito{
-  margin-left:-120px !important;
+.btnFavorito {
+  margin-left: -120px !important;
 }
 
-.textoFavorito{
-  margin-left:-120px !important;
+.textoFavorito {
+  margin-left: -120px !important;
 }

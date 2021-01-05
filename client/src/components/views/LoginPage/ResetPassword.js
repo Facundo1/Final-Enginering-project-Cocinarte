@@ -7,25 +7,30 @@ const ResetPassword = props => {
   const submitHandler = e => {
     e.preventDefault()
     const body = {
-      password,
-      id: props.match.params.id
+      password
     }
-    axios.put('http://localhost:5000/api/users/reset', body).then(() => {
-      props.history.push('/login')
+    axios.post('http://localhost:5000/api/users/reset2', body).then(() => {
+      props.history.push('/')
     })
   }
 
   return (
     <form onSubmit={submitHandler}>
-      <input
-        type='password'
-        name='password'
-        value={password}
-        onChange={e => setPassword(e.target.value)}
-        placeholder='New Password'
-      />
+      <h3 className='text-center'>Ingrese su nueva contraseña</h3>
+      <div className='d-flex justify-content-center mt-4'>
+        <input
+          className='text-center w-25 form-control form-control-sm'
+          type='password'
+          name='password'
+          value={password}
+          onChange={e => setPassword(e.target.value)}
+          placeholder='New Password'
+        />
+      </div>
 
-      <button>Save</button>
+      <div className='d-flex justify-content-center'>
+        <button className='mt-3 btn btn-info'>Save</button>
+      </div>
     </form>
   )
 }
