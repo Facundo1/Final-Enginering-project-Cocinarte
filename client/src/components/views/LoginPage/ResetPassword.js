@@ -10,7 +10,7 @@ const ResetPassword = props => {
       password,
       id: props.match.params.id
     }
-    axios.patch('http://localhost:5000/api/users/reset', body).then(() => {
+    axios.put('http://localhost:5000/api/users/reset', body).then(() => {
       props.history.push('/login')
     })
   }

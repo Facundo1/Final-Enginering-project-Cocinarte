@@ -13,19 +13,17 @@ const ForgotPassword = () => {
     }
 
     axios
-      .post('http://localhost:5000/api/users/mailValidation', body)
+      .post('http://localhost:5000/api/users/nodeMailerTest', body)
       .then(res => {
-        if (res.loginSuccess) {
-          console.log(res.loginSuccess)
-          setExistingMail(true)
-          axios
-            .post('http://localhost:5000/api/users/nodeMailerTest', body)
-            .then(res => {
-              setEmailSent(true)
-            })
+        if (res.loginSuccess !== false) {
+          console.log(
+            'Email enviado hacia la casilla de correo',
+            res.loginSuccess
+          )
         } else {
-          alert('ERROR DE MAIL')
+          alert('ERROR DE EMAIL')
         }
+        setEmailSent(true)
       })
   }
 
