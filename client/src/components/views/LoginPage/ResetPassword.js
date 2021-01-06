@@ -11,7 +11,7 @@ const ResetPassword = props => {
       password,
       user
     }
-    axios.post('http://localhost:5000/api/users/reset2', body).then(() => {
+    axios.post('http://localhost:5000/api/users/reset', body).then(() => {
       props.history.push('/')
     })
   }

@@ -122,24 +122,8 @@ router.post('/sendMail', (req, res) => {
   })
 })
 
-router.post('/reset', (req, res) => {
-  const thisPass = req.body.password
-  const currentUser = req.body.user
-  console.log(thisPass, user)
-  /*User.update(err => {
-    user.password = newPassword
-
-    user.save((err, doc) => {
-      if (err) return res.json({ success: false, err })
-      return res.status(200).json({
-        success: true,
-        msg: 'Mongo Modificado'
-      })
-    })
-})*/
-})
 // RESET2
-router.post('/reset2', (req, res) => {
+router.post('/reset', (req, res) => {
   const thisPass = req.body.password
   const thisUser = req.body.user.userData
   User.findOne({ _id: thisUser._id }, (err, user) => {
