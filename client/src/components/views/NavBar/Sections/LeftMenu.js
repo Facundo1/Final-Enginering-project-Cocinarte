@@ -17,9 +17,6 @@ function LeftMenu(props) {
           <Menu.Item key='setting:2'>
             <a href='/Catalogo'>Catalogo</a>
           </Menu.Item>
-          <Menu.Item key='setting:3'>
-            <a href='/FavoritePage'>Mis Recetas</a>
-          </Menu.Item>
         </MenuItemGroup>
       </SubMenu>
       <Menu.Item key='Premium'>

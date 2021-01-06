@@ -19,7 +19,7 @@ const ResetPassword = props => {
 
   return (
     <form onSubmit={submitHandler}>
-      <h3 className='text-center'>Ingrese su nueva contraseña</h3>
+      <h3 className='text-center mt-5'>Ingrese su nueva contraseña</h3>
       <div className='d-flex justify-content-center mt-4'>
         <input
           className='text-center w-25 form-control form-control-sm'
@@ -34,7 +34,7 @@ const ResetPassword = props => {
       </div>
 
       <div className='d-flex justify-content-center'>
-        <button className='mt-3 btn btn-info'>Save</button>
+        <button className='mt-3 btn btn-info'>Guardar</button>
       </div>
     </form>
   )
