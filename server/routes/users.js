@@ -125,10 +125,10 @@ router.post('/sendMail', (req, res) => {
 router.post('/reset', (req, res) => {
   const thisPass = req.body.password
   const currentUser = req.body.user
-  console.log(thisPass)
-  User.findOneAndUpdate(
-    { _id: req.user._id },
-    { password: thisPass },
+  console.log(thisPass, user)
+  /*User.update(err => {
+    user.password = newPassword
+
     user.save((err, doc) => {
       if (err) return res.json({ success: false, err })
       return res.status(200).json({
@@ -136,26 +136,29 @@ router.post('/reset', (req, res) => {
         msg: 'Mongo Modificado'
       })
     })
-  )
+})*/
 })
 // RESET2
 router.post('/reset2', (req, res) => {
   const thisPass = req.body.password
-  User.findOne({ password: thisPass }, (err, user) => {
+  const thisUser = req.body.user.userData
+  User.findOne({ _id: thisUser._id }, (err, user) => {
+    console.log(thisPass, thisUser)
     if (!user)
       return res.status(500).send({
         loginSuccess: false,
-        message: 'Auth failed, email not found'
+        message: err.message
       })
     else {
       User.update(err => {
         user.password = thisPass
-
+        console.log(thisUser.password)
         user.save((err, doc) => {
           if (err) return res.json({ success: false, err })
           return res.status(200).json({
             success: true,
-            msg: 'Mongo Modificado'
+            msg: 'Mongo Modificado',
+            data: user
           })
         })
       })

@@ -1,13 +1,15 @@
 import React, { useState } from 'react'
 import axios from 'axios'
-
+import { useSelector } from 'react-redux'
 const ResetPassword = props => {
   const [password, setPassword] = useState('')
-
+  const user = useSelector(state => state.user)
+  const userChanger = user.userData && user.userData._id
   const submitHandler = e => {
     e.preventDefault()
     const body = {
-      password
+      password,
+      user
     }
     axios.post('http://localhost:5000/api/users/reset2', body).then(() => {
       props.history.push('/')
@@ -24,7 +26,7 @@ const ResetPassword = props => {
           name='password'
           value={password}
           onChange={e => setPassword(e.target.value)}
-          placeholder='New Password'
+          placeholder='Nueva contraseña'
         />
       </div>
 
