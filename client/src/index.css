@@ -397,3 +397,8 @@ input.error {
 .textoFavorito {
   margin-left: -120px !important;
 }
+ .containerImg{
+   height: 600px;
+   width: 600px;
+  background-image: url("../src/assets/pago3.jpg");
+} 
