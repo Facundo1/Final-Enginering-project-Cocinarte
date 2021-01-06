@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import axios from 'axios'
 import { useSelector } from 'react-redux'
+import * as Yup from 'yup'
 const ResetPassword = props => {
   const [password, setPassword] = useState('')
   const user = useSelector(state => state.user)
@@ -23,6 +24,8 @@ const ResetPassword = props => {
         <input
           className='text-center w-25 form-control form-control-sm'
           type='password'
+          required
+          pattern='(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])\S{6,}'
           name='password'
           value={password}
           onChange={e => setPassword(e.target.value)}

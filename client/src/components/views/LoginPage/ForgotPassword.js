@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import axios from 'axios'
+import * as Yup from 'yup'
 
 const ForgotPassword = () => {
   const [email, setEmail] = useState('')
@@ -8,6 +9,7 @@ const ForgotPassword = () => {
 
   const submitHandler = e => {
     e.preventDefault()
+
     const body = {
       email
     }
@@ -23,6 +25,9 @@ const ForgotPassword = () => {
   }
 
   let body
+  const emailPattern = {
+    Remail: /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i
+  }
   if (emailSent) {
     body = (
       <div className='mt-5'>
@@ -43,7 +48,10 @@ const ForgotPassword = () => {
             className='text-center w-25 form-control form-control-sm'
             name='email'
             placeholder='Email'
-            type='text'
+            type='email'
+            pattern={emailPattern.Remail}
+            size='30'
+            required
             value={email}
             onChange={e => setEmail(e.target.value)}
           />
