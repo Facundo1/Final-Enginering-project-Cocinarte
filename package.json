@@ -32,9 +32,11 @@
     "react-player": "^2.6.2",
     "react-redux": "^5.0.7",
     "saslprep": "^1.0.3",
+    "stripe": "^8.129.0",
     "supports-color": "^7.1.0",
     "uuid": "^8.3.2",
-    "uuidv1": "^1.6.14"
+    "uuidv1": "^1.6.14",
+    "uuidv4": "^6.2.6"
   },
   "devDependencies": {
     "concurrently": "^4.1.0",

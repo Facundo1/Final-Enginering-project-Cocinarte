@@ -7,7 +7,8 @@ const { getFind } = require('./fecadeFavorite')
 //=================================
 //             Favorite
 //=================================
-// the fecade (getFind) in method level , using differents parameters to define the type of action that's need to do
+// the fecade (getFind) in method level , using differents parameters to define the type of action that's
+//need to do
 router.post('/favoriteNumber', auth, (req, res) => {
   return getFind('/favoriteNumber', auth, req, res)
 })

@@ -36,6 +36,10 @@ const ResetPassword = props => {
       <div className='d-flex justify-content-center'>
         <button className='mt-3 btn btn-info'>Guardar</button>
       </div>
+      <h6 className='text-center mt-5 text-danger'>
+        <p className='text-center mt-5 text-info'>[Formato]</p> La contraseña
+        debe tener al menos 1 letra mayuscula, 1 numero y minimo 6 caracteres.
+      </h6>
     </form>
   )
 }

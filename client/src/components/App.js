@@ -13,7 +13,7 @@ import Catalogo from './views/Recipes/Catalog'
 import FavoritePage from './views/Recipes/FavoritePage'
 import Precios from './views/Pricing/PricingHome'
 import Cursos from './views/Cursos/Cursos'
-import ActivarCuenta from './views/Pricing/ActivateAccount'
+import PagosConTarjeta from './views/Pricing/PricingHome'
 import OlvideContraseña from './views/LoginPage/ForgotPassword'
 import ResetPage from './views/LoginPage/ResetPassword'
 
@@ -53,7 +53,7 @@ function App() {
           <Route
             exact
             path='/ActivarCuenta'
-            component={Auth(ActivarCuenta, true)}
+            component={Auth(PagosConTarjeta, true)}
           />
           <Route
             exact

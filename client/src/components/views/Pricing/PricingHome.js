@@ -1,48 +1,50 @@
-import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
+import React from 'react'
+import ReactDOM from 'react-dom'
+import StripeCheckout from 'react-stripe-checkout'
+import axios from 'axios'
+import { toast } from 'react-toastify'
 
-export default class PricingHome extends Component {
-  render() {
-    return (
-      <div id='pricing-Container'>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
+import 'react-toastify/dist/ReactToastify.css'
+import './stylePrice.css'
 
-        <div id='productPremiumPrice'>
-          <h1> Premium Pack </h1>
-          <h1>$1800Ars /mes</h1>
-          <div id='ProductPremiumInfo'>
-            <p>
-              ■ Sistema de dietas personalizado <br></br> <hr></hr> ■
-              Seguimiento alimenticio profesional <br></br> <hr></hr>■ Cursos
-              Profesionales de cocina y bartender <br></br> <hr></hr> ■
-              Beneficios en locales de gastronomia <br></br> <hr></hr>
-            </p>
-            <div id='productPremiumButtonContainer'>
-              <a id='productPremiumButton' href='https://mpago.la/1kAMks2'>
-                Pagar con MercadoPago
-              </a>
-              <br></br>
-              <a
-                id='productPremiumButton'
-                href='https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ZLJJQSFLGXGDW'
-              >
-                Pagar con PayPal
-              </a>
-              <br></br>
-              <div>
-                <Link to='/ActivarCuenta' id='productPremiumButton'>
-                  Ir a activar mi cuenta
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-        <br></br>
-      </div>
+toast.configure()
+
+function PricingHome() {
+  const [product] = React.useState({
+    name: '|Cocinarte Premium|',
+    price: 14,
+    description: 'LLeva la pasion por la cocina, a otro nivel.'
+  })
+
+  async function handleToken(token, addresses) {
+    const response = await axios.post(
+      'http://localhost:5000/api/checkout/cardPay',
+      { token, product }
     )
+    const { status } = response.data
+    console.log('Response:', response.data)
+    if (status === 'success') {
+      toast('Success! Check email for details', { type: 'success' })
+    } else {
+      toast('Something went wrong', { type: 'error' })
+    }
   }
+
+  return (
+    <div className='container'>
+      <div className='product'>
+        <h1>{product.name}</h1>
+        <h3>Oferta exclusiva · ${product.price}</h3>
+      </div>
+      <StripeCheckout
+        stripeKey='pk_test_51I3ODJGL81eAF97DdCWXll6O0t5gJWkgaVCVhNStDn7B2qGRSVuYDsE4eJ45rHKGQCoFMxLHClXYHG3aPpGQfkRr00selbXucj'
+        token={handleToken}
+        amount={product.price * 100}
+        name='|Cocinarte Premium|'
+        billingAddress
+      />
+    </div>
+  )
 }
+
+export default PricingHome
