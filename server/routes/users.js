@@ -116,12 +116,7 @@ router.post('/sendMail', (req, res) => {
         text: `Tu nueva contraseña es ${newPassword} es recomendable que la cambies en tu proximo inicio de sesion`
       }
       transporter.sendMail(mailOptions, (error, info) => {
-        if (error) {
-          res.status(500).send(error.message)
-        } else {
-          console.log('Email enviado')
-          res.status(200).jsonp(req.body)
-        }
+        console.log('Email enviado')
       })
     }
   })
@@ -143,7 +138,7 @@ router.post('/reset', (req, res) => {
     })
   )
 })
-
+// RESET2
 router.post('/reset2', (req, res) => {
   const thisPass = req.body.password
   User.findOne({ password: thisPass }, (err, user) => {
