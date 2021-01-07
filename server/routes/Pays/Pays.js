@@ -5,6 +5,7 @@ const stripe = require('stripe')(
 )
 const uuid = require('uuid').v4
 const { User } = require('../../models/User')
+const { CashPay } = require('../../models/CashPays')
 
 router.post('/cardPay', async (req, res) => {
   console.log('Request:', req.body)
@@ -67,4 +68,20 @@ router.post('/changeAccount', (req, res) => {
     }
   })
 })
+
+router.post('/addCashPays', (req, res) => {
+  const cashPay = new CashPay({
+    userEmail: req.body.userEmail,
+    userName: req.body.userName,
+    UserLastName: req.body.UserLastName,
+    mountOfPay: req.body.mountOfPay,
+    date: req.body.date
+  })
+
+  cashPay.save((err, doc) => {
+    if (err) return res.json({ success: false, err })
+    return res.status(200).json({ success: true })
+  })
+})
+
 module.exports = router
