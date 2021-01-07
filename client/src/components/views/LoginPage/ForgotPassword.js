@@ -25,9 +25,7 @@ const ForgotPassword = () => {
   }
 
   let body
-  const emailPattern = {
-    Remail: /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i
-  }
+
   if (emailSent) {
     body = (
       <div className='mt-5'>
@@ -49,7 +47,7 @@ const ForgotPassword = () => {
             name='email'
             placeholder='Email'
             type='email'
-            pattern={emailPattern.Remail}
+            pattern='/^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i'
             size='30'
             required
             value={email}

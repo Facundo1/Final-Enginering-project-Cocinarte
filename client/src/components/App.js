@@ -11,7 +11,7 @@ import Recipes from './views/Recipes/Recipes'
 import SingleRecipe from './views/Recipes/SingleRecipe'
 import Catalogo from './views/Recipes/Catalog'
 import FavoritePage from './views/Recipes/FavoritePage'
-import Precios from './views/Pricing/PricingHome'
+import Beneficios from './views/Rewards/Rewards'
 import Cursos from './views/Cursos/Cursos'
 import PagosConTarjeta from './views/Pricing/PricingHome'
 import OlvideContraseña from './views/LoginPage/ForgotPassword'
@@ -51,7 +51,7 @@ function App() {
           />
           <Route
             exact
-            path='/ActivarCuenta'
+            path='/Precios'
             component={Auth(PagosConTarjeta, true)}
           />
           <Route
@@ -59,6 +59,7 @@ function App() {
             path='/Recetas/:id'
             component={Auth(SingleRecipe, null)}
           />
+          <Route exact path='/Beneficios' component={Auth(Beneficios, true)} />
         </Switch>
       </div>
 
