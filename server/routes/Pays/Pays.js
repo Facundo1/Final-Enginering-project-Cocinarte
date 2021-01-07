@@ -4,6 +4,7 @@ const stripe = require('stripe')(
   'sk_test_51I3ODJGL81eAF97DuwRqcbI9rYeHPIMZTOUSRPuMk1SebXLkPuLO9jInNhscXUBnGP5cLJXPUv7wNGt2NknnlsvM00NCZJXrzv'
 )
 const uuid = require('uuid').v4
+const { User } = require('../../models/User')
 
 router.post('/cardPay', async (req, res) => {
   console.log('Request:', req.body)
@@ -41,4 +42,29 @@ router.post('/cardPay', async (req, res) => {
   res.json({ error, status })
 })
 
+router.post('/changeAccount', (req, res) => {
+  const thisUser = req.body.user.userData
+  User.findOne({ _id: thisUser._id }, (err, user) => {
+    console.log(thisUser)
+    if (!user)
+      return res.status(500).send({
+        loginSuccess: false,
+        message: err.message
+      })
+    else {
+      User.update(err => {
+        user.accountType = 'Cuenta Premium'
+        console.log(thisUser.accountType)
+        user.save((err, doc) => {
+          if (err) return res.json({ success: false, err })
+          return res.status(200).json({
+            success: true,
+            msg: 'Mongo Modificado',
+            data: user
+          })
+        })
+      })
+    }
+  })
+})
 module.exports = router

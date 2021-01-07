@@ -42,13 +42,12 @@ function App() {
           />
           <Route exact path='/Recetas' component={Auth(Recipes, null)} />
           <Route exact path='/Catalogo' component={Auth(Catalogo, null)} />
-          <Route exact path='/Precios' component={Auth(Precios, null)} />
-          <Route exact path='/AnalizadorBasal' component={Auth(Cursos, null)} />
+          <Route exact path='/AnalizadorBasal' component={Auth(Cursos, true)} />
           <Route exact path='/Cursos' component={Auth(Cursos, true)} />
           <Route
             exact
             path='/FavoritePage'
-            component={Auth(FavoritePage, null)}
+            component={Auth(FavoritePage, true)}
           />
           <Route
             exact

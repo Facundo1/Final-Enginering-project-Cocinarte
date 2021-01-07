@@ -5,7 +5,7 @@ import * as Yup from 'yup'
 const ResetPassword = props => {
   const [password, setPassword] = useState('')
   const user = useSelector(state => state.user)
-  const userChanger = user.userData && user.userData._id
+
   const submitHandler = e => {
     e.preventDefault()
     const body = {
