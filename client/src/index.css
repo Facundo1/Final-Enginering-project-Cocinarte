@@ -377,6 +377,7 @@ input.error {
   width: 100%;
   background-color: rgb(23, 162, 184);
 }
+
 .containerLogin {
   display: flex;
   flex-direction: row;
@@ -402,3 +403,6 @@ input.error {
    width: 600px;
   background-image: url("../src/assets/pago3.jpg");
 } 
+.btnMercadoPago{
+  background-color:#f15025 !important; 
+}
