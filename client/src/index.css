@@ -176,56 +176,10 @@ input.error {
   margin-top: 50px;
   width: 89%;
 }
-.titleReceta {
-  width: 400px;
-  height: 35px;
+.titleReceta, .titleIngredientes, .titlePasos, .titleCategoria {
   background-color: rgb(140, 225, 236);
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   border: none;
-}
-.titleIngredientes {
-  width: 300px;
-  height: 38px;
-  background-color: rgb(140, 225, 236);
-  margin-top: 30px;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  border: none;
-}
-.titlePasos {
-  width: 300px;
-  height: 35px;
-  margin-left: 20px;
-  margin-top: 20px;
-  background-color: rgb(140, 225, 236);
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  border: none;
-}
-.titleCategoria {
-  width: 300px;
-  height: 35px;
-  margin-left: 20px;
-  margin-top: 20px;
-  background-color: rgb(140, 225, 236);
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  border: none;
-}
-
-#imgRecipe {
-  max-height: 30rem;
-  padding: 10px;
-  width: 40%;
-
-  -webkit-box-shadow: 0px 10px 43px -11px rgba(0, 0, 0, 0.88);
-  -moz-box-shadow: 0px 10px 43px -11px rgba(0, 0, 0, 0.88);
-  box-shadow: 0px 10px 43px -11px rgba(0, 0, 0, 0.88);
-}
-#DetallesRecetaContainer {
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  margin-top: 50px;
-  margin-right: 190px;
-  align-items: center;
 }
 
 /*Search Ingredients*/
