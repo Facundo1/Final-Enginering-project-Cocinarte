@@ -1,7 +1,7 @@
 const express = require('express')
 const recipe = require('./Recipe')
-const user = require('./users')
-const favorite = require('./favorite')
+const user = require('./Users/users')
+const favorite = require('./Recipe/favorite')
 const pay = require('./Pays/Pays')
 
 const router = express.Router()
