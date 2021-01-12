@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router()
-const { Favorite } = require('../models/Favorite')
-const { auth } = require('../middleware/auth')
+const { Favorite } = require('../../models/Favorite')
+const { auth } = require('../../middleware/auth')
 const { getFind } = require('./fecadeFavorite')
 
 //=================================

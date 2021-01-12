@@ -1,5 +1,5 @@
-const { Favorite } = require('../models/Favorite')
-const { auth } = require('../middleware/auth')
+const { Favorite } = require('../../models/Favorite')
+const { auth } = require('../../middleware/auth')
 //=================================
 //         Fecade Pattern
 //=================================
