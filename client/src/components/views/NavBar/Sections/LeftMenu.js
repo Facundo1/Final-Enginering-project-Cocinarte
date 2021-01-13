@@ -22,16 +22,19 @@ function LeftMenu(props) {
       <Menu.Item key='Premium'>
         <a href='/Precios'>Precios</a>
       </Menu.Item>
-      <SubMenu title={<span>Herramientas</span>}>
+      <SubMenu title={<span>Premium</span>}>
         <MenuItemGroup title=''>
           <Menu.Item key='G_dieta'>
-            <a href='/AnalizadorBasal'>Analizador Metabolico</a>
+            <a href='/video/:videoId'>Mezclador de tragos</a>
           </Menu.Item>
           <Menu.Item key='C_profesionales'>
-            <a href='/Cursos'>Cursos profesionales</a>
+            <a href='/video/CursosOnline'>Cursos de cocina</a>
           </Menu.Item>
           <Menu.Item key=''>
-            <a href='/Beneficios'>Beneficios</a>
+            <a href='/Beneficios'>Beneficios en locales de gastronomia</a>
+          </Menu.Item>
+          <Menu.Item key=''>
+            <a href='/Descuentos'>Descuentos</a>
           </Menu.Item>
         </MenuItemGroup>
       </SubMenu>

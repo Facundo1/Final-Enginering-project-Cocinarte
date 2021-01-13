@@ -16,6 +16,9 @@ import Cursos from './views/Cursos/Cursos'
 import PagosConTarjeta from './views/Pricing/PricingHome'
 import OlvideContraseña from './views/LoginPage/ForgotPassword'
 import ResetPage from './views/LoginPage/ResetPassword'
+import UploadVideoPage from './views/UploadVideoPage/UploadVideoPage'
+import DetailVideoPage from './views/DetailVideoPage/DetailVideoPage'
+import VideoCatalog from './views/LandingPage/LandingPage'
 
 //null   Anyone Can go inside
 //true   only logged in user can go inside
@@ -43,7 +46,21 @@ function App() {
           <Route exact path='/Recetas' component={Auth(Recipes, null)} />
           <Route exact path='/Catalogo' component={Auth(Catalogo, null)} />
           <Route exact path='/AnalizadorBasal' component={Auth(Cursos, true)} />
-          <Route exact path='/Cursos' component={Auth(Cursos, true)} />
+          <Route
+            exact
+            path='/video/upload'
+            component={Auth(UploadVideoPage, true)}
+          />
+          <Route
+            exact
+            path='/video/CursosOnline'
+            component={Auth(VideoCatalog, true)}
+          />
+          <Route
+            exact
+            path='/video/:videoId'
+            component={Auth(DetailVideoPage, null)}
+          />
           <Route
             exact
             path='/FavoritePage'
