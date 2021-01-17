@@ -76,7 +76,7 @@ function App() {
             path='/Recetas/:id'
             component={Auth(SingleRecipe, null)}
           />
-          <Route exact path='/Beneficios' component={Auth(Beneficios, true)} />
+          <Route exact path='/Descuentos' component={Auth(Beneficios, true)} />
         </Switch>
       </div>
 

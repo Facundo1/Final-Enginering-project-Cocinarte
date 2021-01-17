@@ -5,19 +5,14 @@ import SideVideo from './Sections/SideVideo'
 import Subscriber from './Sections/Subscriber'
 import Comments from './Sections/Comments'
 import LikeDislikes from './Sections/LikeDislikes'
+
 function DetailVideoPage(props) {
   const videoId = props.match.params.videoId
-  const [Video, setVideo] = useState([])
-  const [CommentLists, setCommentLists] = useState([])
+  const [Video, setVideo] = useState()
 
-  const videoVariable = {
-    videoId: Video._id
-  }
-  console.log(videoVariable)
-
-  useEffect(() => {
+  const FetchVideos = () => {
     axios
-      .post('http://localhost:5000/api/video/getVideo', videoVariable)
+      .post('http://localhost:5000/api/video/getVideo', { _id: videoId })
       .then(response => {
         if (response.data.success) {
           console.log(response.data.video)
@@ -26,7 +21,13 @@ function DetailVideoPage(props) {
           alert('Failed to get video Info')
         }
       })
-  })
+  }
+
+  useEffect(() => {
+    if (!Video) {
+      FetchVideos()
+    }
+  }, [FetchVideos])
 
   /* axios
       .post('http://localhost:5000/api/comment/getComments', videoVariable)
@@ -53,15 +54,20 @@ function DetailVideoPage(props) {
           className='postPage'
           style={{ width: '100%', padding: '3rem 4em' }}
         >
-          <span>{Video.title}</span>
+          <h3>
+            <strong>{Video && Video.title}</strong>
+          </h3>
+
           <br></br>
           <video
             style={{ width: '100%' }}
-            src={`http://localhost:5000/${Video.filePath}`}
+            src={Video && `http://localhost:5000/${Video.filePath}`}
             controls
           ></video>
           <br></br>
-          <span>{Video.description}</span>
+          <h3>
+            <strong>{Video && Video.description}</strong>
+          </h3>
         </div>
       </Col>
       <Col lg={6} xs={24}>

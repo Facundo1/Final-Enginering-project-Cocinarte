@@ -7,7 +7,15 @@ const Rewards = () => {
 
   let body
 
-  if (user.userData && user.userData.accountType === 'Cuenta gratuita') {
+  if (!user.userData || !user.userData.accountType) {
+    body = (
+      <div classname='mt-5'>
+        <h3 className='text-center mt-5 text-danger font-weight-bold'>
+          ESPERE.....
+        </h3>
+      </div>
+    )
+  } else if (user.userData && user.userData.accountType === 'Cuenta gratuita') {
     body = (
       <div classname='mt-5'>
         <h3 className='text-center mt-5 text-danger font-weight-bold'>

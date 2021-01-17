@@ -106,12 +106,11 @@ router.post('/uploadVideo', (req, res) => {
 })
 ///////
 router.post('/getVideo', (req, res) => {
-  Video.findOne({ RequestedVideo: req.body._id })
-    .populate('RequestedVideo')
-    .exec((err, video) => {
-      if (err) return res.status(400).send(err)
-      res.status(200).json({ success: true, video })
-    })
+  console.log(req.body)
+  Video.findById(req.body._id).exec((err, video) => {
+    if (err) return res.status(400).send(err)
+    res.status(200).json({ success: true, video })
+  })
 })
 /*
 router.post('/getSubscriptionVideos', (req, res) => {
