@@ -17,7 +17,7 @@ function RightMenu(props) {
       if (response.status === 200) {
         props.history.push('/login')
       } else {
-        alert('Log Out Failed')
+        alert('Fallo el login')
       }
     })
   }
@@ -41,7 +41,7 @@ function RightMenu(props) {
             <div className='loginName btn btn-info  text-white rounded h4 text-left'>
               <p>{user.userData && user.userData.name}</p>
             </div>
-            <div className='loginAccountType btn btn-info  text-white rounded h4 text-left'>
+            <div className='loginName btn btn-info  text-white rounded h4 text-left ml-2'>
               <p>{user.userData && user.userData.accountType}</p>
             </div>
           </div>
@@ -51,6 +51,7 @@ function RightMenu(props) {
           title={
             <span>
               <img
+                className='imgAvatar'
                 id='userAvatar'
                 src={user.userData && user.userData.image}
               ></img>
@@ -58,15 +59,54 @@ function RightMenu(props) {
           }
         >
           <MenuItemGroup title=''>
-            <Menu.Item key='setting:3'>
-              <a href='/FavoritePage'>Mis recetas favoritas </a>
-            </Menu.Item>
             <Menu.Item key='setting:2'>
-              <a href='/CambiarContraseña'>Cambiar contraseña</a>
+              <a href='/changePassword'>Cambiar contraseña</a>
             </Menu.Item>
+
+            {user.userData &&
+            user.userData.email === 'facundosa123@gmail.com' ? (
+              <Menu.Item key='addFood'>
+                <a className='containerLogout' href='/AgregarRecetas'>
+                  Agregar Receta
+                </a>
+              </Menu.Item>
+            ) : (
+              ''
+            )}
+            {user.userData &&
+            user.userData.email === 'facundosa123@gmail.com' ? (
+              <Menu.Item key='addReward'>
+                <a className='containerLogout' href='/AgregarCursos'>
+                  Agregar Curso
+                </a>
+              </Menu.Item>
+            ) : (
+              ''
+            )}
+            {user.userData &&
+            user.userData.email === 'facundosa123@gmail.com' ? (
+              <Menu.Item key='Audits'>
+                <a className='containerLogout' href='/Audits'>
+                  Auditoria
+                </a>
+              </Menu.Item>
+            ) : (
+              ''
+            )}
+
+            {user.userData &&
+            user.userData.email === 'facundosa123@gmail.com' ? (
+              <Menu.Item key='Backup'>
+                <a className='containerLogout' href='/Backup'>
+                  Generar backup
+                </a>
+              </Menu.Item>
+            ) : (
+              ''
+            )}
             <Menu.Item key='logout'>
               <a className='containerLogout' onClick={logoutHandler}>
-                Logout
+                Salir de la cuenta
               </a>
             </Menu.Item>
           </MenuItemGroup>

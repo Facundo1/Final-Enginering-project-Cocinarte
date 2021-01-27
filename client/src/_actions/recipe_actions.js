@@ -1,8 +1,11 @@
 import {
   FETCH_RECIPES,
   FILTER_RECIPES_BY_CATEGORY,
-  SEARCH_RECIPES_BY_INGREDIENTS
+  SEARCH_RECIPES_BY_INGREDIENTS,
+  ADD_RECIPE,
+  DELETE_RECIPE
 } from './types'
+import axios from 'axios'
 
 export const fetchRecipes = () => dispatch => {
   fetch('http://localhost:5000/api/recipes/')
@@ -54,4 +57,42 @@ export const searchByIngredients = (recipes, ingredients) => dispatch => {
       items: recipeList || []
     }
   })
+}
+
+export function addRecipe(dataToSubmit) {
+  const request = axios
+    .post(`http://localhost:5000/api/admin/addRecipe`, dataToSubmit)
+    .then(response => response.data)
+
+  return {
+    type: ADD_RECIPE,
+    payload: request
+  }
+}
+
+//DELETE THE PRODUCTS
+export const deleteRecipe = code => {
+  return dispatch => {
+    const options = {
+      timeout: 25000,
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }
+
+    return fetch(`http://localhost:5000/api/recipe/${code}`, options)
+      .then(res => res.json())
+      .then(data => {
+        console.log('DELETE PRODUCT', data)
+        if (!Object.entries(data).length) {
+          return Promise.reject(data)
+        }
+
+        return dispatch({
+          type: DELETE_RECIPE,
+          payload: data
+        })
+      })
+  }
 }

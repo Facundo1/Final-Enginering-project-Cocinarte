@@ -19,6 +19,10 @@ import ResetPage from './views/LoginPage/ResetPassword'
 import UploadVideoPage from './views/UploadVideoPage/UploadVideoPage'
 import DetailVideoPage from './views/DetailVideoPage/DetailVideoPage'
 import VideoCatalog from './views/Cursos/Cursos'
+import addCurse from './views/AdminFunctions/AddCurses'
+import addRecipe from './views/AdminFunctions/AddRecipes'
+import Auditory from './views/AdminFunctions/Auditory'
+import Backup from './views/AdminFunctions/Backup'
 
 //null   Anyone Can go inside
 //true   only logged in user can go inside
@@ -77,6 +81,15 @@ function App() {
             component={Auth(SingleRecipe, null)}
           />
           <Route exact path='/Descuentos' component={Auth(Beneficios, true)} />
+
+          <Route exact path='/Audits' component={Auth(Auditory, true)} />
+          <Route
+            exact
+            path='/AgregarRecetas'
+            component={Auth(addRecipe, true)}
+          />
+          <Route exact path='/AgregarCursos' component={Auth(addCurse, true)} />
+          <Route exact path='/Backup' component={Auth(Backup, true)} />
         </Switch>
       </div>
 
