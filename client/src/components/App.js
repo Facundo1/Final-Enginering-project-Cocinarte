@@ -18,7 +18,7 @@ import OlvideContraseña from './views/LoginPage/ForgotPassword'
 import ResetPage from './views/LoginPage/ResetPassword'
 import UploadVideoPage from './views/UploadVideoPage/UploadVideoPage'
 import DetailVideoPage from './views/DetailVideoPage/DetailVideoPage'
-import VideoCatalog from './views/LandingPage/LandingPage'
+import VideoCatalog from './views/Cursos/Cursos'
 
 //null   Anyone Can go inside
 //true   only logged in user can go inside

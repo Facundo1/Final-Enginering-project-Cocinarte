@@ -1,167 +1,101 @@
-import React from 'react'
-import ReactPlayer from 'react-player'
+import React, { useEffect, useState } from 'react'
+import { FaCode } from 'react-icons/fa'
+import { Card, Avatar, Col, Typography, Row } from 'antd'
+import axios from 'axios'
+import moment from 'moment'
 import { useSelector } from 'react-redux'
-
-function Cursos() {
+const { Title } = Typography
+const { Meta } = Card
+function LandingPage() {
   const user = useSelector(state => state.user)
 
   let body
-  if (user.userData && user.userData.accountType === 'Cuenta gratuita') {
+  const [Videos, setVideos] = useState([])
+  /////
+  useEffect(() => {
+    axios.get('/api/video/getVideos').then(response => {
+      if (response.data.success) {
+        console.log(response.data.videos)
+        setVideos(response.data.videos)
+      } else {
+        alert('Failed to get Videos')
+      }
+    })
+  }, [])
+
+  if (!user.userData || !user.userData.accountType) {
     body = (
       <div classname='mt-5'>
-        {' '}
+        <h3 className='text-center mt-5 text-danger font-weight-bold'>
+          ESPERE.....
+        </h3>
+      </div>
+    )
+    return body
+  } else if (user.userData && user.userData.accountType === 'Cuenta gratuita') {
+    body = (
+      <div classname='mt-5'>
         <h3 className='text-center mt-5 text-danger font-weight-bold'>
           Hazte premium para acceder a todos los beneficios de |Cocinarte|
         </h3>
       </div>
     )
+    return body
   } else {
-    body = (
-      <div style={{ float: 'center' }}>
-        <div id='cursos-Header'>
-          <h1>Cursos profesionales</h1>
-        </div>
-        <div>
-          <div className='containerVideos'>
-            <form>
-              <div className='mb-5 containerSerch serchCursos'>
-                <input
-                  type='text'
-                  name='search'
-                  className='form-control'
-                  placeholder='Busca un video'
-                />
-                <div className='spaceBetween'></div>
-                <button
-                  className='border-0 rounded fas fa-search btn btn-info'
-                  type='submit'
-                ></button>
+    const renderCards = Videos.map((video, index) => {
+      var minutes = Math.floor(video.duration / 60)
+      var seconds = Math.floor(video.duration - minutes * 60)
+      console.log(video._id._id)
+
+      return (
+        <Col lg={6} md={8} xs={24}>
+          <div style={{ position: 'relative' }}>
+            <a href={`/video/${video._id._id}`}>
+              <img
+                style={{ width: '100%' }}
+                alt='thumbnail'
+                src={`http://localhost:5000/${video.thumbnail}`}
+              />
+              <div
+                className=' duration'
+                style={{
+                  bottom: 0,
+                  right: 0,
+                  position: 'absolute',
+                  margin: '4px',
+                  color: '#fff',
+                  backgroundColor: 'rgba(17, 17, 17, 0.8)',
+                  opacity: 0.8,
+                  padding: '2px 4px',
+                  borderRadius: '2px',
+                  letterSpacing: '0.5px',
+                  fontSize: '12px',
+                  fontWeight: '500',
+                  lineHeight: '12px'
+                }}
+              >
+                <span>Ver más..</span>
               </div>
-            </form>
-
-            <h3 className='subtitle-Curse rounded text-center'>
-              Cocina Basica
-            </h3>
-            <div className='mb-5 cook-Curse'>
-              <ReactPlayer
-                url='https://www.youtube.com/watch?v=8QwxT3Kv_qk'
-                className='react-player'
-              />
-              <ReactPlayer
-                url='https://www.youtube.com/watch?v=8QwxT3Kv_qk'
-                className='react-player'
-              />
-              <ReactPlayer
-                url='https://www.youtube.com/watch?v=8QwxT3Kv_qk'
-                className='react-player'
-              />
-              <ReactPlayer
-                url='https://www.youtube.com/watch?v=8QwxT3Kv_qk'
-                className='react-player'
-              />
-              <ReactPlayer
-                url='https://www.youtube.com/watch?v=8QwxT3Kv_qk'
-                className='react-player'
-              />
-              <ReactPlayer
-                url='https://www.youtube.com/watch?v=8QwxT3Kv_qk'
-                className='react-player'
-              />
-            </div>
-
-            <br></br>
-            <br></br>
-            <h3 className='subtitle-Curse'>Pasteleria</h3>
-            <div className='mn-5 cook-Curse'>
-              <ReactPlayer
-                url='https://www.youtube.com/watch?v=8QwxT3Kv_qk'
-                className='react-player'
-              />
-              <ReactPlayer
-                url='https://www.youtube.com/watch?v=8QwxT3Kv_qk'
-                className='react-player'
-              />
-              <ReactPlayer
-                url='https://www.youtube.com/watch?v=8QwxT3Kv_qk'
-                className='react-player'
-              />
-              <ReactPlayer
-                url='https://www.youtube.com/watch?v=8QwxT3Kv_qk'
-                className='react-player'
-              />
-              <ReactPlayer
-                url='https://www.youtube.com/watch?v=8QwxT3Kv_qk'
-                className='react-player'
-              />
-              <ReactPlayer
-                url='https://www.youtube.com/watch?v=8QwxT3Kv_qk'
-                className='react-player'
-              />
-            </div>
-            <br></br>
-            <br></br>
-            <h3 className='mt-5 subtitle-Curse'>Bartender</h3>
-            <div className='cook-Curse'>
-              <ReactPlayer
-                url='https://www.youtube.com/watch?v=8QwxT3Kv_qk'
-                className='react-player'
-              />
-              <ReactPlayer
-                url='https://www.youtube.com/watch?v=8QwxT3Kv_qk'
-                className='react-player'
-              />
-              <ReactPlayer
-                url='https://www.youtube.com/watch?v=8QwxT3Kv_qk'
-                className='react-player'
-              />
-              <ReactPlayer
-                url='https://www.youtube.com/watch?v=8QwxT3Kv_qk'
-                className='react-player'
-              />
-              <ReactPlayer
-                url='https://www.youtube.com/watch?v=8QwxT3Kv_qk'
-                className='react-player'
-              />
-              <ReactPlayer
-                url='https://www.youtube.com/watch?v=8QwxT3Kv_qk'
-                className='react-player'
-              />
-            </div>
-            <br></br>
-            <br></br>
-            <h3 className='mt-5 subtitle-Curse'>Trucos de cocina</h3>
-            <div className='cook-Curse'>
-              <ReactPlayer
-                url='https://www.youtube.com/watch?v=8QwxT3Kv_qk'
-                className='react-player'
-              />
-              <ReactPlayer
-                url='https://www.youtube.com/watch?v=8QwxT3Kv_qk'
-                className='react-player'
-              />
-              <ReactPlayer
-                url='https://www.youtube.com/watch?v=8QwxT3Kv_qk'
-                className='react-player'
-              />
-              <ReactPlayer
-                url='https://www.youtube.com/watch?v=8QwxT3Kv_qk'
-                className='react-player'
-              />
-              <ReactPlayer
-                url='https://www.youtube.com/watch?v=8QwxT3Kv_qk'
-                className='react-player'
-              />
-              <ReactPlayer
-                url='https://www.youtube.com/watch?v=8QwxT3Kv_qk'
-                className='react-player'
-              />
-            </div>
+            </a>
           </div>
-        </div>
+          <br />
+          <Meta title={video.title} />
+          <br />
+
+          <span> {moment(video.createdAt).format('MM/DD/YYYY')} </span>
+        </Col>
+      )
+    })
+
+    return (
+      <div style={{ width: '85%', margin: '3rem auto' }}>
+        <Title level={2}> Cursos online </Title>
+        <hr />
+
+        <Row gutter={16}>{renderCards}</Row>
       </div>
     )
   }
-  return body
 }
 
-export default Cursos
+export default LandingPage
