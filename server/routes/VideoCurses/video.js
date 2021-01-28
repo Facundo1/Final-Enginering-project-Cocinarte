@@ -6,8 +6,8 @@ const ffmpegPath = require('@ffmpeg-installer/ffmpeg').path
 const ffmpeg = require('fluent-ffmpeg')
 ffmpeg.setFfmpegPath(ffmpegPath)
 
-const { Video } = require('../../models/Video')
-//const { Subscriber } = require('../../models/Subscriber')
+const Video = require('../../models/Video')
+
 const { auth } = require('../../middleware/auth')
 let myDate = new Date().toISOString().replace(/:/g, '-')
 var storage = multer.diskStorage({

@@ -5,7 +5,16 @@ const Recipe = require('../../models/Recipe')
 const Video = require('../../models/Video')
 
 router.post('/addVideo', (req, res) => {
-  const video = new Video(req.body)
+  const video = new Video({
+    title: req.body.title,
+    description: req.body.description,
+    privacy: req.body.privacy,
+    filePath: req.body.filePath,
+    category: req.body.category,
+    views: req.body.views,
+    duration: req.body.duration,
+    thumbnail: req.body.thumbnail
+  })
 
   video.save((err, doc) => {
     if (err) return res.json({ success: false, err })
