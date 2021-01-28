@@ -3,8 +3,7 @@ const recipe = require('./Recipe')
 const user = require('./Users/users')
 const favorite = require('./Recipe/favorite')
 const pay = require('./Pays/Pays')
-const comment = require('./VideoCurses/comment')
-const like = require('./VideoCurses/like')
+
 const video = require('./VideoCurses/video')
 const adminFuncctions = require('./AdminFunctions/AdminFunctions')
 
@@ -17,8 +16,7 @@ router.use('/api/users', user)
 router.use('/api/recipes', recipe)
 router.use('/api/favorite', favorite)
 router.use('/api/checkout', pay)
-router.use('/api/comment', comment)
-router.use('/api/like', like)
+
 router.use('/api/video', video)
 router.use('/api/admin', adminFuncctions)
 module.exports = router

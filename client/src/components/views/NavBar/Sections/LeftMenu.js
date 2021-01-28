@@ -31,9 +31,6 @@ function LeftMenu(props) {
             <a href='/video/CursosOnline'>Cursos de cocina</a>
           </Menu.Item>
           <Menu.Item key=''>
-            <a href='/Beneficios'>Beneficios en locales de gastronomia</a>
-          </Menu.Item>
-          <Menu.Item key=''>
             <a href='/Descuentos'>Descuentos</a>
           </Menu.Item>
         </MenuItemGroup>

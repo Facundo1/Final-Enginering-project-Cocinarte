@@ -81,7 +81,7 @@ export const deleteRecipe = code => {
       }
     }
 
-    return fetch(`http://localhost:5000/api/recipe/${code}`, options)
+    return fetch(`http://localhost:5000/api/recipes/${code}`, options)
       .then(res => res.json())
       .then(data => {
         console.log('DELETE PRODUCT', data)

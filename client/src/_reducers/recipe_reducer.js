@@ -2,7 +2,8 @@ import {
   FETCH_RECIPES,
   FILTER_RECIPES_BY_CATEGORY,
   SEARCH_RECIPES_BY_INGREDIENTS,
-  ADD_RECIPE
+  ADD_RECIPE,
+  DELETE_RECIPE
 } from '../_actions/types'
 
 const initialState = {
@@ -38,6 +39,20 @@ export default function(state = initialState, action) {
     }
     case ADD_RECIPE:
       return { ...state, addFood: action.payload }
+
+    case DELETE_RECIPE:
+      console.log(action.payload)
+      const newProducts = [...state.items]
+      const productToDelete = newProducts.findIndex(
+        ele => ele._id === action.payload._id
+      )
+
+      newProducts.splice(productToDelete, 1)
+      return {
+        ...state,
+        isLoading: false,
+        items: newProducts
+      }
     default:
       return state
   }

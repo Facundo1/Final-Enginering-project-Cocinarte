@@ -22,7 +22,6 @@ function LandingPage() {
       }
     })
   }, [])
-
   if (!user.userData || !user.userData.accountType) {
     body = (
       <div classname='mt-5'>
