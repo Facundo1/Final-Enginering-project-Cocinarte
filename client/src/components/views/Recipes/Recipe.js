@@ -2,8 +2,17 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { deleteRecipe } from '../../../_actions/recipe_actions'
-
+import { fetchRecipes } from '../../../_actions/recipe_actions'
 class Recipe extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      //PopUp overlayState
+      check: false,
+      chek2: false
+    }
+  }
+
   render() {
     const recipe = this.props.recipe
     const recipesItems = (
@@ -23,7 +32,7 @@ class Recipe extends Component {
           </Link>
           <button
             className='btn btn-danger btn-xs'
-            onClick={deleteRecipe(recipe._id)}
+            onClick={() => this.props.deleteRecipe(recipe._id)}
           >
             Eliminar
           </button>
@@ -40,5 +49,6 @@ const mapStateToProps = state => ({
 })
 
 export default connect(mapStateToProps, {
-  deleteRecipe
+  deleteRecipe,
+  fetchRecipes
 })(Recipe)
