@@ -25,7 +25,7 @@ function LeftMenu(props) {
       <SubMenu title={<span>Premium</span>}>
         <MenuItemGroup title=''>
           <Menu.Item key='G_dieta'>
-            <a href='/video/:videoId'>Mezclador de tragos</a>
+            <a href='/Empleos'>Buscar empleo</a>
           </Menu.Item>
           <Menu.Item key='C_profesionales'>
             <a href='/video/CursosOnline'>Cursos de cocina</a>

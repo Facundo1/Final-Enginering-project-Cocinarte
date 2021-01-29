@@ -17,3 +17,11 @@ export const ADD_CASH_PAY = 'add_cash_pay'
 //////////// VIDEOS ACTIONS ///////////////
 export const ADD_VIDEO = 'ADD_VIDEO'
 export const DELETE_VIDEO = 'DELETE_VIDEO'
+
+//////////// JOBS ACTIONS ///////////////
+export const FETCH_JOBS = 'FETCH_JOBS'
+export const ADD_JOB = 'ADD_JOB'
+export const MAKE_REQUEST_JOB = 'MAKE_REQUEST_JOB'
+export const GET_DATA_JOB = 'GET_DATA_JOB'
+export const ERROR_JOB = 'ERROR_JOB'
+export const UPDATE_HAS_NEXT_PAGE_JOB = 'UPDATE_HAS_NEXT_PAGE_JOB'

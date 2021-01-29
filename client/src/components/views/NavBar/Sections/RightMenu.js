@@ -63,6 +63,10 @@ function RightMenu(props) {
               <a href='/changePassword'>Cambiar contraseña</a>
             </Menu.Item>
 
+            <Menu.Item key='setting:2'>
+              <a href='/FavoritePage'>Mis recetas</a>
+            </Menu.Item>
+
             {user.userData &&
             user.userData.email === 'facundosa123@gmail.com' ? (
               <Menu.Item key='addFood'>
@@ -78,6 +82,16 @@ function RightMenu(props) {
               <Menu.Item key='addReward'>
                 <a className='containerLogout' href='/AgregarCursos'>
                   Agregar Curso
+                </a>
+              </Menu.Item>
+            ) : (
+              ''
+            )}
+            {user.userData &&
+            user.userData.email === 'facundosa123@gmail.com' ? (
+              <Menu.Item key='addJob'>
+                <a className='containerLogout' href='/agregarEmpleo'>
+                  Agregar Empleo
                 </a>
               </Menu.Item>
             ) : (

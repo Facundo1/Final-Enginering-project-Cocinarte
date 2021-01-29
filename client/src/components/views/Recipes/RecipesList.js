@@ -11,11 +11,6 @@ class RecipeList extends Component {
     return (
       <>
         <div className='container py-5'>
-          {/* title */}
-          <div id='rowTitle'></div>
-          <br></br>
-          <br></br>
-          {/* end of title */}
           <div id='rowRecipes'>
             {this.props.recipes &&
               this.props.recipes.map(recipe => (

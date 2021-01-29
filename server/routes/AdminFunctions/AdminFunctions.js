@@ -3,6 +3,7 @@ const express = require('express')
 const router = express.Router()
 const Recipe = require('../../models/Recipe')
 const Video = require('../../models/Video')
+const Job = require('../../models/Jobs')
 
 router.post('/addVideo', (req, res) => {
   const video = new Video({
@@ -28,6 +29,17 @@ router.post('/addRecipe', (req, res) => {
   const recipe = new Recipe(req.body)
 
   recipe.save((err, doc) => {
+    if (err) return res.json({ success: false, err })
+    return res.status(200).json({
+      success: true
+    })
+  })
+})
+
+router.post('/addJob', (req, res) => {
+  const job = new Job(req.body)
+
+  job.save((err, doc) => {
     if (err) return res.json({ success: false, err })
     return res.status(200).json({
       success: true

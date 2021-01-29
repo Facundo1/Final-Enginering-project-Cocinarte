@@ -21,8 +21,12 @@ import DetailVideoPage from './views/DetailVideoPage/DetailVideoPage'
 import VideoCatalog from './views/Cursos/Cursos'
 import addCurse from './views/AdminFunctions/AddCurses'
 import addRecipe from './views/AdminFunctions/AddRecipes'
+import addJob from './views/AdminFunctions/AddJobs'
 import Auditory from './views/AdminFunctions/Auditory'
 import Backup from './views/AdminFunctions/Backup'
+import jobHome from './views/JobsInterview/Jobs'
+import SingleJob from './views/JobsInterview/SingleJob'
+import JobPostulate from './views/JobsInterview/JobPostulate'
 
 //null   Anyone Can go inside
 //true   only logged in user can go inside
@@ -90,6 +94,14 @@ function App() {
           />
           <Route exact path='/AgregarCursos' component={Auth(addCurse, true)} />
           <Route exact path='/Backup' component={Auth(Backup, true)} />
+          <Route exact path='/Empleos' component={Auth(jobHome, true)} />
+          <Route exact path='/Empleos/:id' component={Auth(SingleJob, true)} />
+          <Route exact path='/AgregarEmpleo' component={Auth(addJob, true)} />
+          <Route
+            exact
+            path='/Postularse'
+            component={Auth(JobPostulate, true)}
+          />
         </Switch>
       </div>
 
