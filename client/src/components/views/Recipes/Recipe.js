@@ -25,17 +25,24 @@ class Recipe extends Component {
             height='200'
           />
           <p className='text-nowrap'>{recipe.title}</p>
+
           <Link to={`/Recetas/${recipe._id}`}>
             <button className='btn btn-info  text-white rounded h5'>
               Detalles
             </button>
           </Link>
-          <button
-            className='btn btn-danger btn-xs'
-            onClick={() => this.props.deleteRecipe(recipe._id)}
-          >
-            Eliminar
-          </button>
+
+          {this.props.user &&
+          this.props.user.email === 'facundosa123@gmail.com' ? (
+            <button
+              className='btn btn-danger btn-xs'
+              onClick={() => this.props.deleteRecipe(recipe._id)}
+            >
+              Eliminar
+            </button>
+          ) : (
+            ''
+          )}
         </div>
       </div>
     )
@@ -45,7 +52,8 @@ class Recipe extends Component {
 }
 
 const mapStateToProps = state => ({
-  recipes: state.recipe.items
+  recipes: state.recipe.items,
+  user: state.user.userData
 })
 
 export default connect(mapStateToProps, {
