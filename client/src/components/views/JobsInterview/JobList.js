@@ -27,7 +27,7 @@ class JobList extends Component {
 }
 
 const mapStateToProps = state => ({
-  jobs: state.jobs.filteredItems
+  jobs: state.jobs.jobs
 })
 
 export default connect(mapStateToProps, {

@@ -6,7 +6,8 @@ import {
   ERROR_JOB,
   UPDATE_HAS_NEXT_PAGE_JOB,
   FETCH_JOBS,
-  ADD_JOB
+  ADD_JOB,
+  DELETE_JOB
 } from './types'
 import reducer from '../_reducers/jobs_reducers'
 
@@ -75,4 +76,31 @@ export default function useFetchJobs(params, page) {
   }, [params, page])
 
   return state
+}
+
+//DELETE THE PRODUCTS
+export const deleteJob = code => {
+  return dispatch => {
+    const options = {
+      timeout: 25000,
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }
+
+    return fetch(`http://localhost:5000/api/jobs/${code}`, options)
+      .then(res => res.json())
+      .then(data => {
+        console.log('DELETE PRODUCT', data)
+        if (!Object.entries(data).length) {
+          return Promise.reject(data)
+        }
+
+        return dispatch({
+          type: DELETE_JOB,
+          payload: data
+        })
+      })
+  }
 }
