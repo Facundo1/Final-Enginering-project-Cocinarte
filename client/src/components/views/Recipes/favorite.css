@@ -16,7 +16,10 @@ tr:nth-child(even) {
   background-color: #ffffff;
 }
 .btnFavorito{
-
   width: 300px;
+}
+
+.btnDetalle, .btnDelete{
+  margin-left: 70px;
 }
 

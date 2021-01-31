@@ -2,11 +2,9 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { deleteRecipe } from '../../../_actions/recipe_actions'
-<<<<<<< HEAD
-import "./style.css"
-=======
 import { fetchRecipes } from '../../../_actions/recipe_actions'
->>>>>>> 845ad3c7f67d55fa00dd30e56f751af0326e0756
+import "./favorite.css"
+
 class Recipe extends Component {
   constructor(props) {
     super(props)
@@ -35,19 +33,11 @@ class Recipe extends Component {
               Detalles
             </button>
           </Link>
-<<<<<<< HEAD
-          <button
-            className='btnDelete btn btn-danger btn-xs'
-            onClick={deleteRecipe(recipe._id)}
-          >
-            Eliminar
-          </button>
-=======
 
           {this.props.user &&
           this.props.user.email === 'facundosa123@gmail.com' ? (
             <button
-              className='btn btn-danger btn-xs'
+              className='btnDelete btn btn-danger btn-xs'
               onClick={() => this.props.deleteRecipe(recipe._id)}
             >
               Eliminar
@@ -55,7 +45,7 @@ class Recipe extends Component {
           ) : (
             ''
           )}
->>>>>>> 845ad3c7f67d55fa00dd30e56f751af0326e0756
+
         </div>
       </div>
     )
