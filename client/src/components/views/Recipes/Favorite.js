@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import axios from 'axios'
+import "./favorite.css"
 
 function Favorite(props) {
   const user = useSelector(state => state.user)
@@ -64,12 +65,12 @@ function Favorite(props) {
   return (
     <div className=''>
       {user && user.userData && user.userData.isAuth && (
-        <div className='btnFavorito d-flex justify-content-center flex-row mt-5'>
+        <div className='d-flex justify-content-center flex-row mt-5'>
           <button
-            className='border-0 rounded btn btn-info'
+            className='text-light ml-3 border-0 rounded btn btn-info'
             onClick={() => onClickFavorite(variable)}
           >
-            {Favorited ? 'borrar de favoritos' : 'Agregar a favorito'}
+            {Favorited ? 'Borrar de favoritos' : 'Agregar a favorito'}
           </button>
         </div>
       )}

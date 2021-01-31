@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { deleteRecipe } from '../../../_actions/recipe_actions'
-
+import "./style.css"
 class Recipe extends Component {
   render() {
     const recipe = this.props.recipe
@@ -17,12 +17,12 @@ class Recipe extends Component {
           />
           <p className='text-nowrap'>{recipe.title}</p>
           <Link to={`/Recetas/${recipe._id}`}>
-            <button className='btn btn-info  text-white rounded h5'>
+            <button className='btnDetalle btn btn-info  text-white rounded h5'>
               Detalles
             </button>
           </Link>
           <button
-            className='btn btn-danger btn-xs'
+            className='btnDelete btn btn-danger btn-xs'
             onClick={deleteRecipe(recipe._id)}
           >
             Eliminar

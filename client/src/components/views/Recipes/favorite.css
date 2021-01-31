@@ -15,4 +15,8 @@ tr {
 tr:nth-child(even) {
   background-color: #ffffff;
 }
+.btnFavorito{
+
+  width: 300px;
+}
 

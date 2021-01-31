@@ -177,7 +177,10 @@ input.error {
   width: 89%;
 }
 .titleReceta, .titleIngredientes, .titlePasos, .titleCategoria {
-  background-color: rgb(140, 225, 236);
+  background-color: rgb(23, 162, 184);
+  text-align: center;
+  color: white;
+  width: 300px;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   border: none;
 }
