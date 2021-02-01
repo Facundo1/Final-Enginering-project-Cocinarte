@@ -3,12 +3,12 @@ import axios from 'axios'
 import * as Yup from 'yup'
 
 const JobPostulate = () => {
-  const [filename, setFileName] = useState('')
-  const [path, setPath] = useState('')
+  const [fileName, setFileName] = useState('')
+  const [filePath, setPath] = useState('')
   const [name, setName] = useState('')
   const [lastname, setLastNaame] = useState('')
+  const [companyEmail, setCompanyEmail] = useState('')
   const [emailSent, setEmailSent] = useState(false)
-  const [existingMail, setExistingMail] = useState(false)
 
   const submitHandler = e => {
     e.preventDefault()
@@ -16,20 +16,32 @@ const JobPostulate = () => {
     const body = {
       name,
       lastname,
-      filename,
-      path
+      companyEmail,
+      fileName,
+      filePath
     }
 
-    axios.post('http://localhost:5000/api/jobs/sendMail', body).then(res => {
-      if (res.loginSuccess !== false) {
-        console.log('Email enviado hacia la casilla de correo', body.filename)
-        setEmailSent(true)
-      } else {
-        alert('EMAIL NO COINCIDE CON LA BASE DE DATOS')
-      }
-    })
+    axios
+      .post('http://localhost:5000/api/axiosJobs/sendCurriculum', body)
+      .then(res => {
+        if (res.loginSuccess !== false) {
+          console.log('Email enviado hacia la casilla de correo', body.filename)
+          setEmailSent(true)
+        } else {
+          alert('EMAIL NO COINCIDE CON LA BASE DE DATOS')
+        }
+      })
   }
 
+  const handleselectedFile = event => {
+    setFileName(event.target.files[0])
+    setPath(event.target.files[0].path)
+  }
+  console.log('Nombre', name)
+  console.log('Apellido', lastname)
+  console.log('Email de la empresa', companyEmail)
+  console.log('Nombre del curriculum ', fileName)
+  console.log(filePath)
   let body
 
   if (emailSent) {
@@ -68,6 +80,16 @@ const JobPostulate = () => {
             value={lastname}
             onChange={e => setLastNaame(e.target.value)}
           />
+          <input
+            className='text-center w-25 form-control form-control-sm'
+            name='email'
+            placeholder='Email'
+            type='email'
+            pattern='/^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i'
+            size='30'
+            required
+            onChange={e => setCompanyEmail(e.target.value)}
+          />
           <br></br>
           <p>Subir curriculum vitae</p>
           <input
@@ -75,8 +97,7 @@ const JobPostulate = () => {
             type='file'
             name='upload'
             accept='application/pdf'
-            value={filename}
-            onChange={e => setFileName(e.target.value)}
+            onChange={handleselectedFile}
           />
         </div>
         <div className='d-flex justify-content-center'>
