@@ -24,6 +24,7 @@
     "react-redux": "^7.1.0-rc.1",
     "react-router-dom": "^5.0.1",
     "react-scripts": "3.4.1",
+    "react-spinners": "^0.10.4",
     "react-stripe-checkout": "^2.6.3",
     "react-toastify": "^6.2.0",
     "redux": "^4.0.0",

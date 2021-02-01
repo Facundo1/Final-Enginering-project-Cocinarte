@@ -3,6 +3,7 @@ import { FaCode } from 'react-icons/fa'
 import { Card, Avatar, Col, Typography, Row } from 'antd'
 import axios from 'axios'
 import moment from 'moment'
+import BeatLoader from 'react-spinners/BeatLoader'
 import { useSelector } from 'react-redux'
 const { Title } = Typography
 const { Meta } = Card
@@ -51,10 +52,12 @@ function Cursos() {
   }, [])
   if (!user.userData || !user.userData.accountType) {
     body = (
-      <div classname='mt-5'>
-        <h3 className='text-center mt-5 text-danger font-weight-bold'>
-          ESPERE.....
-        </h3>
+      <div className='d-flex justify-content-center mt-5 '>
+        <BeatLoader
+          className='d-flex justify-content-center'
+          color={'black'}
+          size={15}
+        />
       </div>
     )
     return body
@@ -101,17 +104,22 @@ function Cursos() {
                 }}
               >
                 <span>Ver ahora</span>
+              </div>
+              {user.userData &&
+              user.userData.email === 'facundosa123@gmail.com' ? (
                 <form className='formSendMail mt-5' onSubmit={submitHandler}>
                   <div className='d-flex justify-content-center'>
                     <button
-                      className='mt-3 btn btn-info'
+                      className='mt-3 btn btn-danger'
                       onClick={e => setId(video._id._id)}
                     >
                       Eliminar
                     </button>
                   </div>
                 </form>
-              </div>
+              ) : (
+                ''
+              )}
             </a>
           </div>
           <br />

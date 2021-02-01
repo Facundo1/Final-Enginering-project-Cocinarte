@@ -6,11 +6,6 @@ import { deleteJob } from '../../../_actions/jobs_actions'
 class Job extends Component {
   constructor(props) {
     super(props)
-    this.state = {
-      //PopUp overlayState
-      check: false,
-      chek2: false
-    }
   }
   render() {
     const job = this.props.job

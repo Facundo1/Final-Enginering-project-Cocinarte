@@ -30,9 +30,6 @@ function LeftMenu(props) {
           <Menu.Item key='C_profesionales'>
             <a href='/video/CursosOnline'>Cursos de cocina</a>
           </Menu.Item>
-          <Menu.Item key=''>
-            <a href='/Descuentos'>Descuentos</a>
-          </Menu.Item>
         </MenuItemGroup>
       </SubMenu>
     </Menu>
