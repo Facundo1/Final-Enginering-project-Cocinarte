@@ -6,8 +6,35 @@ import moment from 'moment'
 import { useSelector } from 'react-redux'
 const { Title } = Typography
 const { Meta } = Card
-function LandingPage() {
+
+function Cursos() {
+  const [id, setId] = useState('')
   const user = useSelector(state => state.user)
+
+  const submitHandler = e => {
+    e.preventDefault()
+
+    const body = {
+      id
+    }
+
+    axios
+      .post('http://localhost:5000/api/video/deleteVideo', body)
+      .then(res => {
+        if (res.loginSuccess !== false) {
+          axios.get('/api/video/getVideos').then(response => {
+            if (response.data.success) {
+              console.log(response.data.videos)
+              setVideos(response.data.videos)
+            } else {
+              alert('Failed to get Videos')
+            }
+          })
+        } else {
+          console.log('Elemento no eliminado con exito')
+        }
+      })
+  }
 
   let body
   const [Videos, setVideos] = useState([])
@@ -73,7 +100,17 @@ function LandingPage() {
                   lineHeight: '12px'
                 }}
               >
-                <span>Ver más..</span>
+                <span>Ver ahora</span>
+                <form className='formSendMail mt-5' onSubmit={submitHandler}>
+                  <div className='d-flex justify-content-center'>
+                    <button
+                      className='mt-3 btn btn-info'
+                      onClick={e => setId(video._id._id)}
+                    >
+                      Eliminar
+                    </button>
+                  </div>
+                </form>
               </div>
             </a>
           </div>
@@ -97,4 +134,4 @@ function LandingPage() {
   }
 }
 
-export default LandingPage
+export default Cursos
