@@ -96,6 +96,11 @@ function App() {
           <Route exact path='/Backup' component={Auth(Backup, true)} />
           <Route exact path='/Empleos' component={Auth(jobHome, true)} />
           <Route exact path='/Empleos/:id' component={Auth(SingleJob, true)} />
+          <Route
+            exact
+            path='/Postularse'
+            component={Auth(JobPostulate, true)}
+          />
           <Route exact path='/AgregarEmpleo' component={Auth(addJob, true)} />
           <Route
             exact
