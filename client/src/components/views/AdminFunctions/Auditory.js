@@ -1,28 +1,45 @@
 import React, { useState, useEffect } from 'react'
-
-import DataTable from 'react-data-table-component'
+import { Card, Avatar, Col, Typography, Row } from 'antd'
 import axios from 'axios'
 
 function Auditory() {
-  const [data, setData] = useState([])
+  const [Data, setData] = useState([])
+
+  useEffect(() => {
+    peticionGet()
+  }, [])
 
   const peticionGet = async () => {
     await axios
       .get('http://localhost:5000/api/admin/getUsersAuditory')
       .then(response => {
-        setData(response.data)
+        console.log(response.data.data)
+        setData(response.data.data)
       })
       .catch(error => {
         console.log(error)
       })
   }
 
-  console.log('data fuera del axios', data)
-  const columns = [{ name: 'ID', data: data.user_id }]
+  console.log('data fuera del axios', Data)
 
-  useEffect(() => {
-    peticionGet()
-  }, [])
+  const renderCards = Data.map((user, index) => {
+    return (
+      <tr key={index}>
+        <td className='text-center'>{user.user_id}</td>
+        <td>
+          <div className='d-flex justify-content-center'>{user.username}</div>
+        </td>
+        <td>
+          <div className='d-flex justify-content-center'>{user.loginDate}</div>
+        </td>
+        <td>
+          <div className='d-flex justify-content-center'>{user.logoutDate}</div>
+        </td>
+      </tr>
+    )
+  })
+
   return (
     <div>
       <div>
@@ -32,11 +49,17 @@ function Auditory() {
             Ver...
           </button>
         </a>
-        <DataTable
-          columns={columns}
-          data={data.user_id}
-          title='Auditoria de usuarios'
-        />
+        <table className='ml-5'>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Usuario</th>
+              <th>Fecha login</th>
+              <th>Fecha logout</th>
+            </tr>
+          </thead>
+          <tbody>{renderCards}</tbody>
+        </table>
       </div>
     </div>
   )

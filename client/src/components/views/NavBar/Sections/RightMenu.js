@@ -13,11 +13,6 @@ const MenuItemGroup = Menu.ItemGroup
 function RightMenu(props) {
   const user = useSelector(state => state.user)
 
-  const [userId, setUserId] = React.useState('')
-  const [userName, setUserName] = React.useState('')
-  const [userLoginDate, setUserLoginDate] = React.useState('')
-  const [userLogoutDate, setUserLogoutDate] = React.useState('')
-
   const userAuditory = () => {
     var dt = new Date()
     var time =
