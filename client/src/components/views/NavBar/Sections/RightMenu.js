@@ -6,15 +6,62 @@ import axios from 'axios'
 import { USER_SERVER } from '../../../Config'
 import { withRouter } from 'react-router-dom'
 import { useSelector } from 'react-redux'
+import { useCookies, Cookies } from 'react-cookie'
 const SubMenu = Menu.SubMenu
 const MenuItemGroup = Menu.ItemGroup
 
 function RightMenu(props) {
   const user = useSelector(state => state.user)
 
+  const [userId, setUserId] = React.useState('')
+  const [userName, setUserName] = React.useState('')
+  const [userLoginDate, setUserLoginDate] = React.useState('')
+  const [userLogoutDate, setUserLogoutDate] = React.useState('')
+
+  const userAuditory = () => {
+    var dt = new Date()
+    var time =
+      dt.getDate() +
+      '/' +
+      (dt.getMonth() + 1) +
+      '/' +
+      dt.getFullYear() +
+      '/' +
+      dt.getHours() +
+      ':' +
+      dt.getMinutes() +
+      ':' +
+      dt.getSeconds()
+
+    const user_id = user.userData._id
+    const username = user.userData.name
+    const cookies = new Cookies()
+    const loginDate = cookies.get('logDate')
+    const logoutDate = time
+
+    const body = {
+      user_id,
+      username,
+      loginDate,
+      logoutDate
+    }
+    console.log(body)
+    axios
+      .post('http://localhost:5000/api/admin/addUserAuditory', body)
+      .then(res => {
+        if (res.success !== false) {
+          console.log('Auditoria de login guardada')
+          cookies.remove('logDate')
+        } else {
+          console.log('error, no se pudo guardar nada, pedazo de virgo')
+        }
+      })
+  }
+
   const logoutHandler = () => {
     axios.get(`${USER_SERVER}/logout`).then(response => {
       if (response.status === 200) {
+        userAuditory()
         props.history.push('/login')
       } else {
         alert('Fallo el login')

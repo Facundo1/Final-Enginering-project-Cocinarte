@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { deleteRecipe } from '../../../_actions/recipe_actions'
 import { fetchRecipes } from '../../../_actions/recipe_actions'
-import "./favorite.css"
+import './favorite.css'
 
 class Recipe extends Component {
   constructor(props) {
@@ -45,7 +45,6 @@ class Recipe extends Component {
           ) : (
             ''
           )}
-
         </div>
       </div>
     )

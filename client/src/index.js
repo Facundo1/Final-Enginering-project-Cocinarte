@@ -7,7 +7,7 @@ import './index.css'
 import App from './components/App'
 import * as serviceWorker from './serviceWorker'
 import { BrowserRouter } from 'react-router-dom'
-
+import { CookiesProvider } from 'react-cookie'
 import Reducer from './_reducers'
 import { Provider } from 'react-redux'
 import { createStore, applyMiddleware } from 'redux'
@@ -28,7 +28,9 @@ ReactDOM.render(
     )}
   >
     <BrowserRouter>
-      <App />
+      <CookiesProvider>
+        <App />
+      </CookiesProvider>
     </BrowserRouter>
   </Provider>,
   document.getElementById('root')

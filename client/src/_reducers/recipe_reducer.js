@@ -34,7 +34,7 @@ export default function(state = initialState, action) {
       return {
         ...state,
         Ingredients: action.payload.Ingredients,
-        filteredItems: action.payload.items
+        items: action.payload.items
       }
     }
     case ADD_RECIPE:

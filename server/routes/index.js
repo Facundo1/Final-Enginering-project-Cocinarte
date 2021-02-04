@@ -7,6 +7,7 @@ const video = require('./VideoCurses/video')
 const job = require('./Jobs')
 const axiosJob = require('./Jobs/jobs')
 const adminFuncctions = require('./AdminFunctions/AdminFunctions')
+//const backup = require('../Backup/backup')
 
 const router = express.Router()
 
@@ -22,4 +23,5 @@ router.use('/api/jobs', job)
 router.use('/api/axiosJobs', axiosJob)
 router.use('/api/video', video)
 router.use('/api/admin', adminFuncctions)
+//router.use('/api/backup', backup)
 module.exports = router

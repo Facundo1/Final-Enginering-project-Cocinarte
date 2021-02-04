@@ -6,9 +6,9 @@ class Filter extends Component {
   render() {
     return (
       <div id='category-combobox-box'>
-        <label className="tex-center">
+        <label className='tex-center'>
           <select
-          className="form-control"
+            className='form-control'
             id='category-combobox'
             value={this.props.Category}
             onChange={e =>
@@ -34,7 +34,7 @@ class Filter extends Component {
 
 const mapStateToProps = state => ({
   recipes: state.recipe.items,
-  filteredRecipes: state.recipe.filteredItems,
+
   Category: state.recipe.items.Category
 })
 

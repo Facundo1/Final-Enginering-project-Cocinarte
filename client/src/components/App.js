@@ -23,7 +23,7 @@ import addCurse from './views/AdminFunctions/AddCurses'
 import addRecipe from './views/AdminFunctions/AddRecipes'
 import addJob from './views/AdminFunctions/AddJobs'
 import Auditory from './views/AdminFunctions/Auditory'
-import Backup from './views/AdminFunctions/Backup'
+
 import jobHome from './views/JobsInterview/Jobs'
 import SingleJob from './views/JobsInterview/SingleJob'
 import JobPostulate from './views/JobsInterview/JobPostulate'
@@ -87,13 +87,14 @@ function App() {
           <Route exact path='/Descuentos' component={Auth(Beneficios, true)} />
 
           <Route exact path='/Audits' component={Auth(Auditory, true)} />
+
           <Route
             exact
             path='/AgregarRecetas'
             component={Auth(addRecipe, true)}
           />
           <Route exact path='/AgregarCursos' component={Auth(addCurse, true)} />
-          <Route exact path='/Backup' component={Auth(Backup, true)} />
+
           <Route exact path='/Empleos' component={Auth(jobHome, true)} />
           <Route exact path='/Empleos/:id' component={Auth(SingleJob, true)} />
           <Route
