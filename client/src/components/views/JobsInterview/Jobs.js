@@ -14,36 +14,31 @@ class Jobs extends Component {
   }
 
   render() {
-    let body
-    console.log(this.props.user)
+    const JobsLoader = () => (
+      <div className='d-flex justify-content-center mt-5 '>
+        <BeatLoader
+          className='d-flex justify-content-center'
+          color={'black'}
+          size={15}
+        />
+      </div>
+    )
+    const JobsFreeUser = () => (
+      <div classname='mt-5'>
+        <h3 className='text-center mt-5 text-danger font-weight-bold'>
+          Hazte premium para acceder a todos los beneficios de |Cocinarte|
+        </h3>
+      </div>
+    )
+
+    //Container-Branch-View Pattern//
     if (!this.props.user || !this.props.user.accountType) {
-      body = (
-        <div className='d-flex justify-content-center mt-5 '>
-          <BeatLoader
-            className='d-flex justify-content-center'
-            color={'black'}
-            size={15}
-          />
-        </div>
-      )
-      return body
+      return <JobsLoader />
     }
     if (this.props.user && this.props.user.accountType === 'Cuenta gratuita') {
-      body = (
-        <div classname='mt-5'>
-          <h3 className='text-center mt-5 text-danger font-weight-bold'>
-            Hazte premium para acceder a todos los beneficios de |Cocinarte|
-          </h3>
-        </div>
-      )
-      return body
+      return <JobsFreeUser />
     } else {
-      body = (
-        <>
-          <JobList />
-        </>
-      )
-      return body
+      return <JobList />
     }
   }
 }

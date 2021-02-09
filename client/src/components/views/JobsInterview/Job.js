@@ -3,13 +3,15 @@ import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { deleteJob } from '../../../_actions/jobs_actions'
 
+//Container-Branch-View Pattern
 class Job extends Component {
   constructor(props) {
     super(props)
   }
   render() {
     const job = this.props.job
-    const jobItems = (
+
+    const JobEntity = () => (
       <div className='col-md-4' key={job._id}>
         <div className='mb-5 thumbnail'>
           <img
@@ -20,7 +22,7 @@ class Job extends Component {
           />
           <p className='text-nowrap'>{job.companyName}</p>
           <Link to={`/Empleos/${job._id}`}>
-            <button className='btn btn-info  text-white rounded h5'>
+            <button className='btn btn-info  text-black rounded h5'>
               Ver oferta
             </button>
           </Link>
@@ -38,8 +40,12 @@ class Job extends Component {
         </div>
       </div>
     )
-
-    return <div className='listOfJobs'>{jobItems}</div>
+    //Container-Branch-View Pattern//
+    return (
+      <div className='listOfJobs'>
+        <JobEntity />
+      </div>
+    )
   }
 }
 

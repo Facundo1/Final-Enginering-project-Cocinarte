@@ -42,18 +42,13 @@ class SingleJob extends Component {
     const id = this.state.job._id
     console.log(id)
 
-    if (this.state.loading) {
-      return (
-        <div>
-          <div>
-            <div>
-              <h2>Cargando Empleos...</h2>
-            </div>
-          </div>
-        </div>
-      )
-    }
-    return (
+    const JobEspecificationsLoading = () => (
+      <div>
+        <h2>Cargando Empleos...</h2>
+      </div>
+    )
+
+    const JobEspecificationsView = () => (
       <div>
         <div>
           <div className='d-flex justify-content-center'>
@@ -118,6 +113,12 @@ class SingleJob extends Component {
         </div>
       </div>
     )
+
+    //Container-Branch-View Pattern//
+    if (this.state.loading) {
+      return <JobEspecificationsLoading />
+    }
+    return <JobEspecificationsView />
   }
 }
 
