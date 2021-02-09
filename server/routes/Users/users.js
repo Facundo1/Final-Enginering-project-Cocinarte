@@ -122,7 +122,6 @@ router.post('/sendMail', (req, res) => {
   })
 })
 
-/* // RESET2
 router.post('/reset', (req, res) => {
   const thisPass = req.body.password
   const thisUser = req.body.user.userData
@@ -148,6 +147,6 @@ router.post('/reset', (req, res) => {
       })
     }
   })
-}) */
+})
 
 module.exports = router

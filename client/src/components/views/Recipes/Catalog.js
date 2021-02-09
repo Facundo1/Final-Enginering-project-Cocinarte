@@ -18,7 +18,7 @@ class Catalog extends Component {
 }
 
 const mapStateToProps = state => ({
-  Recipes: state.recipe.items
+  Recipes: state.recipe.filteredItems
 })
 
 export default connect(mapStateToProps, {

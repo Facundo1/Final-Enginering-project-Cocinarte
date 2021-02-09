@@ -24,7 +24,7 @@ class RecipeList extends Component {
 }
 
 const mapStateToProps = state => ({
-  recipes: state.recipe.items
+  recipes: state.recipe.filteredItems
 })
 
 export default connect(mapStateToProps, {

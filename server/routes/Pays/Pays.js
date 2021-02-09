@@ -83,5 +83,20 @@ router.post('/addCashPays', (req, res) => {
     return res.status(200).json({ success: true })
   })
 })
+router.get('/getCashPays', (req, res) => {
+  CashPay.find()
+    .populate('_id')
+    .exec((err, pays) => {
+      if (err) return res.status(400).send(err)
+      res.status(200).json({ success: true, data: pays })
+    })
+})
+
+router.get('/getCashPaysById', (req, res) => {
+  CashPay.find({ recipeId: req.params.recipeId }).exec((err, favorites) => {
+    if (err) return res.status(400).send(err)
+    return res.status(200).json({ success: true, favorites })
+  })
+})
 
 module.exports = router

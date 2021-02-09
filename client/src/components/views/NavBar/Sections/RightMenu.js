@@ -102,10 +102,10 @@ function RightMenu(props) {
         >
           <MenuItemGroup title=''>
             <Menu.Item key='setting:2'>
-              <a href='/changePassword'>Cambiar contraseña</a>
+              <a href='/CambiarContraseña'>Cambiar contraseña</a>
             </Menu.Item>
 
-            <Menu.Item key='setting:2'>
+            <Menu.Item key='setting:3'>
               <a href='/FavoritePage'>Mis recetas</a>
             </Menu.Item>
 
