@@ -22,8 +22,8 @@ import VideoCatalog from './views/Cursos/Cursos'
 import addCurse from './views/AdminFunctions/AddCurses'
 import addRecipe from './views/AdminFunctions/AddRecipes'
 import addJob from './views/AdminFunctions/AddJobs'
+import AddCashPay from './views/AdminFunctions/addCashPay'
 import Auditory from './views/AdminFunctions/Auditory'
-
 import jobHome from './views/JobsInterview/Jobs'
 import SingleJob from './views/JobsInterview/SingleJob'
 import JobPostulate from './views/JobsInterview/JobPostulate'
@@ -94,6 +94,11 @@ function App() {
             component={Auth(addRecipe, true)}
           />
           <Route exact path='/AgregarCursos' component={Auth(addCurse, true)} />
+          <Route
+            exact
+            path='/AgregarPagoEnEfectivo'
+            component={Auth(AddCashPay, true)}
+          />
 
           <Route exact path='/Empleos' component={Auth(jobHome, true)} />
           <Route exact path='/Empleos/:id' component={Auth(SingleJob, true)} />

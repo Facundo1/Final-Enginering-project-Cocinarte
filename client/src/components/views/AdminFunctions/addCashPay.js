@@ -19,13 +19,11 @@ function AddCashPays(props) {
         date: ''
       }}
       validationSchema={Yup.object().shape({
-        userEmail: Yup.string().required('Una email es requerida'),
-        userName: Yup.string().required('El nombre es requerido'),
-        UserLastName: Yup.string().required(
-          'La direccion del local es requerida'
-        ),
-        montOfPay: Yup.string().required('Horarios de atencion requeridos'),
-        date: Yup.string().required('Debe escribir la descripcion del local')
+        userEmail: Yup.string().required('Email requerido'),
+        userName: Yup.string().required('Nombre requerido'),
+        UserLastName: Yup.string().required('Apellido requerido'),
+        montOfPay: Yup.string().required('Monto requerido'),
+        date: Yup.string().required('Fecha requerida')
       })}
       onSubmit={(values, { setSubmitting }) => {
         setTimeout(() => {
@@ -64,15 +62,16 @@ function AddCashPays(props) {
         return (
           <div className='mt-5 d-flex justify-content-center flex-column'>
             <div className='mb-4 d-flex justify-content-center'>
-              <h2 className='text-center'>Agregar Local de gastronomia</h2>
+              <h2 className='text-center'>Agregar pagos en efectivo</h2>
             </div>
             <div className='d-flex justify-content-center'>
               <Form className='w-25' onSubmit={handleSubmit}>
-                <Form.Item required label='Foto'>
+                <Form.Item required label='Email del comprador'>
                   <Input
                     id='userEmail'
-                    placeholder='Escribe la ruta del archivo'
+                    placeholder='Ingrese el e-mail de pago'
                     type='text'
+                    required
                     value={values.userEmail}
                     onChange={handleChange}
                     onBlur={handleBlur}
@@ -87,11 +86,12 @@ function AddCashPays(props) {
                   )}
                 </Form.Item>
 
-                <Form.Item required label='Nombre'>
+                <Form.Item required label='Nombre del comprador'>
                   <Input
                     id='userName'
-                    placeholder='Escribe el nombre del lugar'
+                    placeholder='ingrese el nombre completo'
                     type='text'
+                    required
                     value={values.userName}
                     onChange={handleChange}
                     onBlur={handleBlur}
@@ -106,11 +106,12 @@ function AddCashPays(props) {
                   )}
                 </Form.Item>
 
-                <Form.Item required label='Descripcion'>
+                <Form.Item required label='Apellido del comprador'>
                   <Input
                     id='UserLastName'
-                    placeholder='Escribe la descripcion del lugar'
+                    placeholder='Ingresar el apellido completo'
                     type='text'
+                    required
                     value={values.UserLastName}
                     onChange={handleChange}
                     onBlur={handleBlur}
@@ -125,11 +126,12 @@ function AddCashPays(props) {
                   )}
                 </Form.Item>
 
-                <Form.Item required label='Direccion'>
+                <Form.Item required label='Monto del pago'>
                   <Input
                     id='montOfPay'
-                    placeholder='Escribe la direccion del local'
-                    type='text'
+                    placeholder='Ingrese el monto ($)'
+                    type='number'
+                    required
                     value={values.montOfPay}
                     onChange={handleChange}
                     onBlur={handleBlur}
@@ -144,11 +146,12 @@ function AddCashPays(props) {
                   )}
                 </Form.Item>
 
-                <Form.Item required label='Horarios de atencion'>
+                <Form.Item required label='Fecha de pago'>
                   <Input
                     id='date'
-                    placeholder='Escribe el horario de atencion'
+                    placeholder='Ingrese la fecha de la operacion'
                     type='text'
+                    required
                     value={values.date}
                     onChange={handleChange}
                     onBlur={handleBlur}

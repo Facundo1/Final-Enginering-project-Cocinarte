@@ -141,6 +141,16 @@ function RightMenu(props) {
             )}
             {user.userData &&
             user.userData.email === 'facundosa123@gmail.com' ? (
+              <Menu.Item key='addJob'>
+                <a className='containerLogout' href='/AgregarPagoEnEfectivo'>
+                  Agregar pago en efectivo
+                </a>
+              </Menu.Item>
+            ) : (
+              ''
+            )}
+            {user.userData &&
+            user.userData.email === 'facundosa123@gmail.com' ? (
               <Menu.Item key='Audits'>
                 <a className='containerLogout' href='/Audits'>
                   Auditoria
