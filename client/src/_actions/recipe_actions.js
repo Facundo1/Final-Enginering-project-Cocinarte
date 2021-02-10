@@ -30,24 +30,29 @@ export const filterRecipesByCategory = (recipes, category) => dispatch => {
 
 export const searchByIngredients = (recipes, ingredients) => dispatch => {
   const correctWroteIngredients = ingredients.replace(/\s/g, '')
-  const ingredientList = correctWroteIngredients
-    ? correctWroteIngredients.split(',')
-    : []
-  console.log(ingredientList)
   let b, recipeList
-  if (recipes.length) {
-    recipeList = recipes.filter(recipe => {
-      b = false
-      ingredientList.forEach(ingredient => {
-        if (
-          ingredient &&
-          recipe.Ingredients.toLowerCase().includes(ingredient.toLowerCase())
-        ) {
-          b = true
-        }
+  if (correctWroteIngredients === '') {
+    console.log('asdasdasd', recipes)
+    recipeList = recipes
+  } else {
+    const ingredientList = correctWroteIngredients
+      ? correctWroteIngredients.split(',')
+      : []
+
+    if (recipes.length) {
+      recipeList = recipes.filter(recipe => {
+        b = false
+        ingredientList.forEach(ingredient => {
+          if (
+            ingredient &&
+            recipe.Ingredients.toLowerCase().includes(ingredient.toLowerCase())
+          ) {
+            b = true
+          }
+        })
+        return b
       })
-      return b
-    })
+    }
   }
 
   return dispatch({

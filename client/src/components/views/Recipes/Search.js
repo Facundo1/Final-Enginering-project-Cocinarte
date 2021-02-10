@@ -44,7 +44,7 @@ class Search extends Component {
 }
 
 const mapStateToProps = state => ({
-  recipes: state.recipe.filteredItems,
+  recipes: state.recipe.items,
   Ingredients: state.recipe.items.Ingredients
 })
 

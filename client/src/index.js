@@ -19,14 +19,13 @@ const createStoreWithMiddleware = applyMiddleware(
   ReduxThunk
 )(createStore)
 
+export const store = createStoreWithMiddleware(
+  Reducer,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+)
+
 ReactDOM.render(
-  <Provider
-    store={createStoreWithMiddleware(
-      Reducer,
-      window.__REDUX_DEVTOOLS_EXTENSION__ &&
-        window.__REDUX_DEVTOOLS_EXTENSION__()
-    )}
-  >
+  <Provider store={store}>
     <BrowserRouter>
       <CookiesProvider>
         <App />

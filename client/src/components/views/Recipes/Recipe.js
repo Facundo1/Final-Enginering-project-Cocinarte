@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { deleteRecipe } from '../../../_actions/recipe_actions'
+
 import { fetchRecipes } from '../../../_actions/recipe_actions'
 import './favorite.css'
 
@@ -33,18 +33,6 @@ class Recipe extends Component {
               Detalles
             </button>
           </Link>
-
-          {this.props.user &&
-          this.props.user.email === 'facundosa123@gmail.com' ? (
-            <button
-              className='btnDelete btn btn-danger btn-xs'
-              onClick={() => this.props.deleteRecipe(recipe._id)}
-            >
-              Eliminar
-            </button>
-          ) : (
-            ''
-          )}
         </div>
       </div>
     )
@@ -54,11 +42,9 @@ class Recipe extends Component {
 }
 
 const mapStateToProps = state => ({
-  recipes: state.recipe.items,
-  user: state.user.userData
+  recipes: state.recipe.items
 })
 
 export default connect(mapStateToProps, {
-  deleteRecipe,
   fetchRecipes
 })(Recipe)
