@@ -21,7 +21,8 @@ const insert = (req, res) => {
     description: req.body.description,
     requirements: req.body.requirements,
     contactMail: req.body.contactMail,
-    category: req.body.category
+    category: req.body.category,
+    approximateSalary: req.body.approximateSalary
   })
   jobs.save(err => {
     if (err) res.send({ msg: 'Cant`t save the Job', error: err })

@@ -25,6 +25,10 @@ const JobsSchema = new Schema({
   category: {
     type: String,
     required: true
+  },
+  approximateSalary: {
+    type: Number,
+    required: true
   }
 })
 

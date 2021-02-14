@@ -46,4 +46,44 @@ router.post('/sendCurriculum', (req, res) => {
   })
 })
 
+/////////////////////// Strategy pattern to calculate Net income ///////////////////
+function lowTaxes() {
+  const discount = 10
+  return discount
+}
+function mediumTaxes() {
+  const discount = 15
+  return discount
+}
+function highTaxes() {
+  const discount = 20
+  return discount
+}
+
+router.post('/jobCalculateSalary', (req, res) => {
+  const jobSalary = req.body.netSalary
+  let total = 0
+  console.log('Salario que llega desde el front :', jobSalary)
+
+  if (jobSalary <= 35000) {
+    const discount = lowTaxes()
+    total = jobSalary - (jobSalary * discount) / 100
+  }
+  if (jobSalary > 35000 && jobSalary <= 50000) {
+    const discount = mediumTaxes()
+    total = jobSalary - (jobSalary * discount) / 100
+  }
+  if (jobSalary > 50000) {
+    const discount = highTaxes()
+    total = jobSalary - (jobSalary * discount) / 100
+  }
+  console.log(total)
+
+  return res.status(200).json({
+    success: true,
+    msg: 'Impuestos calculados',
+    data: total
+  })
+})
+
 module.exports = router

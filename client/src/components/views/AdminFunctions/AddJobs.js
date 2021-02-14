@@ -17,7 +17,8 @@ function AddJobs(props) {
         description: '',
         requirements: '',
         contactMail: '',
-        category: ''
+        category: '',
+        approximateSalary: 0
       }}
       validationSchema={Yup.object().shape({
         photo: Yup.string().required('Una foto es requerida'),
@@ -39,7 +40,8 @@ function AddJobs(props) {
             description: values.description,
             requirements: values.requirements,
             contactMail: values.contactMail,
-            category: values.category
+            category: values.category,
+            approximateSalary: values.approximateSalary
           }
 
           dispatch(addJob(dataToSubmit)).then(response => {
@@ -182,6 +184,27 @@ function AddJobs(props) {
                   />
                   {errors.category && touched.category && (
                     <div className='inputFeedback'>{errors.category}</div>
+                  )}
+                </Form.Item>
+
+                <Form.Item required label='Salario'>
+                  <Input
+                    id='approximateSalary'
+                    placeholder='Escriba el salario aproximado'
+                    type='number'
+                    value={values.approximateSalary}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    className={
+                      errors.approximateSalary && touched.approximateSalary
+                        ? 'text-input error'
+                        : 'text-input'
+                    }
+                  />
+                  {errors.approximateSalary && touched.approximateSalary && (
+                    <div className='inputFeedback'>
+                      {errors.approximateSalary}
+                    </div>
                   )}
                 </Form.Item>
 
