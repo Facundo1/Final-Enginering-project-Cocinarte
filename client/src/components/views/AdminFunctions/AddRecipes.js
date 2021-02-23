@@ -127,7 +127,7 @@ function AddRecipes(props) {
                 </Form.Item>
 
                 <Form.Item required label='Pasos'>
-                  <Input
+                  <textarea
                     id='Steps'
                     placeholder='Escribe los pasos de la receta'
                     type='text'
@@ -136,8 +136,8 @@ function AddRecipes(props) {
                     onBlur={handleBlur}
                     className={
                       errors.Steps && touched.Steps
-                        ? 'text-input error'
-                        : 'text-input'
+                        ? 'text-input w-100 p-3     error'
+                        : 'text-input w-100 p-3'
                     }
                   />
                   {errors.Steps && touched.Steps && (
@@ -145,7 +145,7 @@ function AddRecipes(props) {
                   )}
                 </Form.Item>
                 <Form.Item required label='Ingredientes'>
-                  <Input
+                  <textarea
                     id='Ingredients'
                     placeholder='Escriba los ingredientes'
                     type='text'
@@ -154,8 +154,8 @@ function AddRecipes(props) {
                     onBlur={handleBlur}
                     className={
                       errors.Ingredients && touched.Ingredients
-                        ? 'text-input error'
-                        : 'text-input'
+                        ? 'text-input w-100 p-3  error '
+                        : 'text-input w-100 p-3 '
                     }
                   />
                   {errors.Ingredients && touched.Ingredients && (

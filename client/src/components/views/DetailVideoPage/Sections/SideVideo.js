@@ -20,7 +20,7 @@ function SideVideo() {
     console.log(video._id._id)
     return (
       <div style={{ display: 'flex', marginTop: '1rem', padding: '0 2rem' }}>
-        <div style={{ width: '40%', marginRight: '1rem' }}>
+        <div className="videoSide" style={{ width: '40%', marginRight: '1rem' }}>
           <a href={`/video/${video._id._id}`} style={{ color: 'gray' }}>
             <img
               style={{ width: '100%' }}
@@ -30,7 +30,7 @@ function SideVideo() {
           </a>
         </div>
 
-        <div style={{ width: '50%' }}>
+        <div className="videoSide" style={{ width: '50%' }}>
           <a href={`/video/${video._id}`} style={{ color: 'gray' }}>
             <span style={{ fontSize: '1rem', color: 'black' }}>
               {video.title}{' '}

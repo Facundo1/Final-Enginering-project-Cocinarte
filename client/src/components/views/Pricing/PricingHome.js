@@ -5,7 +5,6 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
 
 const PricingHome = (props) => {
   toast.configure();
@@ -40,15 +39,15 @@ const PricingHome = (props) => {
   }
 
   return (
-    <div className="">
-      <div className="d-flex justify-content-center productImg">
-        <h1>{product.name}</h1>
-      </div>
-      <div className="d-flex justify-content-center">
-        <h3>Oferta exclusiva: ${product.price}</h3>
+    <div>
+      <div className="productImg rounded container mb-4 d-flex justify-content-center mt-5">
+        <h1 className="text-white">{product.name}</h1>
       </div>
 
       <div className="d-flex justify-content-center container containerImg"></div>
+      <div className="oferText mt-5 d-flex justify-content-center">
+        <h3 className="text-dark">Oferta exclusiva: ${product.price}</h3>
+      </div>
       <div className="d-flex justify-content-center">
         <StripeCheckout
           className="mt-4 w-25"
@@ -69,7 +68,8 @@ const PricingHome = (props) => {
         </a>
       </div>
       <br></br>
-      <div className="d-flex justify-content-center">
+
+      <div className="infoContact container d-flex justify-content-center">
         <p>
           <div className="d-flex justify-content-center">
             <p className="text-dark font-weight-bold h4">Importante</p>
@@ -79,27 +79,30 @@ const PricingHome = (props) => {
               Con el metodo de pago a través de "Mercado Pago" , una vez
               acreditada la compra se deberá enviar un email a:
               <div className="d-flex justify-content-center mt-3">
-                <h5>|soporte.cocinarte@gmail.com|</h5>
+                <h5 className="text-danger">|soporte.cocinarte@gmail.com|</h5>
               </div>
+              <hr></hr>
               <div className="d-flex justify-content-center">
-              <p className="h4 mt-5 font-weight-bold text-dark">El mail debe contener</p>
+                <p className="h4 mt-3 font-weight-bold text-dark">
+                  El mail debe contener
+                </p>
               </div>
-              
             </p>
           </div>
           <div className="d-flex justify-content-center">
-          <p className="text-dark h6">
-          Email de la cuenta de |Cocinarte| --
-          Nombre y apellido de la cuenta --
-          Foto adjunta del comprobante de pago{" "}
-          </p>
+            <p className="text-dark h6">
+              Email de la cuenta de |Cocinarte| -- Nombre y apellido de la
+              cuenta -- Foto adjunta del comprobante de pago{" "}
+            </p>
           </div>
-        
+
           <div>
-            <p className="h6 text-dark font-weight-bold mt-4"> En el lapso de 24 hs , una vez verificada la solicitud , se notificara
-          y brindara el servicio de cuenta premium.</p>
+            <p className="h6 text-dark font-weight-bold mt-4">
+              {" "}
+              En el lapso de 24 hs , una vez verificada la solicitud , se
+              notificara y brindara el servicio de cuenta premium.
+            </p>
           </div>
-         
         </p>
       </div>
     </div>

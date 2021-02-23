@@ -81,7 +81,7 @@ class SingleJob extends Component {
           <div></div>
           {/* info */}
           <div className='d-flex justify-content-center mt-4'>
-            <h5>{job.description}</h5>
+            <h5 className="font-weight-bold">{job.description}</h5>
           </div>
           <div className='mt-4 d-flex justify-content-center'>
             <h5 className='titleRequirement rounded'>
@@ -89,24 +89,24 @@ class SingleJob extends Component {
             </h5>
           </div>
           <div className='d-flex justify-content-center'>
-            <h5>{job.requirements}</h5>
+            <h5 className="font-weight-bold">{job.requirements}</h5>
           </div>
           <div className='mt-4 d-flex justify-content-center'>
             <h5 className='titleCategoria rounded'>{'Tipo de trabajo'}</h5>
           </div>
           <div className='d-flex justify-content-center'>
-            <h5>{job.category}</h5>
+            <h5 className="font-weight-bold" >{job.category}</h5>
           </div>
           <div className='mt-4 d-flex justify-content-center'>
             <h5 className='titleMail rounded'>{'Email de contacto'}</h5>
           </div>
           <div className='d-flex justify-content-center'>
-            <h5>{job.contactMail}</h5>
+            <h5 className="font-weight-bold" >{job.contactMail}</h5>
           </div>
 
           <div className='mt-4 d-flex justify-content-center'>
-            <button className='btn btn-info' onClick={ShowNetIncome}>
-              Mostrar salario mensual ofrecido
+            <button className='font-weight-bold btn btn-info' onClick={ShowNetIncome}>
+             Calcular salario mensual
             </button>
           </div>
           <div className='textDescription mt-3 d-flex justify-content-center'>
@@ -125,6 +125,7 @@ class SingleJob extends Component {
               )}
             </h5>
           </div>
+          <hr></hr>
           <div className='d-flex justify-content-center'>
             {
               <Link
@@ -134,7 +135,7 @@ class SingleJob extends Component {
                 }}
                 id='btnVolver'
               >
-                <button className='btnPostulate mt-1 btn btn-info text-white rounded h5'>
+                <button className='btnPostulate mt-1 btn btn-warning font-weight-bold text-dark rounded h5'>
                   Quiero postularme
                 </button>
               </Link>
