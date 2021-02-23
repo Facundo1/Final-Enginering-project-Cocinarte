@@ -65,9 +65,9 @@ function Favorite(props) {
   return (
     <div className=''>
       {user && user.userData && user.userData.isAuth && (
-        <div className='d-flex justify-content-center flex-row mt-5'>
+        <div className='d-flex justify-content-center mt-5'>
           <button
-            className='text-light ml-3 border-0 rounded btn btn-info'
+            className='btnDeleteAdd text-light ml-3 border-0 rounded btn btn-info'
             onClick={() => onClickFavorite(variable)}
           >
             {Favorited ? 'Borrar de favoritos' : 'Agregar a favorito'}

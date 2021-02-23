@@ -60,7 +60,7 @@ class SingleJob extends Component {
     console.log(id)
 
     const JobEspecificationsLoading = () => (
-      <div>
+      <div className='d-flex justify-content-center'>
         <h2>Cargando Empleos...</h2>
       </div>
     )
@@ -69,7 +69,7 @@ class SingleJob extends Component {
       <div>
         <div>
           <div className='d-flex justify-content-center'>
-            <h4 className='titleReceta rounded mt-3'>{job.companyName}</h4>
+            <h5 className='titleName rounded mt-3'>{job.companyName}</h5>
           </div>
           <div className='d-flex justify-content-center'>
             <img
@@ -81,27 +81,27 @@ class SingleJob extends Component {
           <div></div>
           {/* info */}
           <div className='d-flex justify-content-center mt-4'>
-            <h4>{job.description}</h4>
+            <h5>{job.description}</h5>
           </div>
-          <div className='d-flex justify-content-center'>
-            <h4 className='titleCategoria rounded'>
+          <div className='mt-4 d-flex justify-content-center'>
+            <h5 className='titleRequirement rounded'>
               {'Requisitos excluyentes'}
-            </h4>
+            </h5>
           </div>
           <div className='d-flex justify-content-center'>
-            <h4>{job.requirements}</h4>
+            <h5>{job.requirements}</h5>
+          </div>
+          <div className='mt-4 d-flex justify-content-center'>
+            <h5 className='titleCategoria rounded'>{'Tipo de trabajo'}</h5>
           </div>
           <div className='d-flex justify-content-center'>
-            <h4 className='titleCategoria rounded'>{'Tipo de trabajo'}</h4>
+            <h5>{job.category}</h5>
+          </div>
+          <div className='mt-4 d-flex justify-content-center'>
+            <h5 className='titleMail rounded'>{'Email de contacto'}</h5>
           </div>
           <div className='d-flex justify-content-center'>
-            <h4>{job.category}</h4>
-          </div>
-          <div className='d-flex justify-content-center'>
-            <h4 className='titleCategoria rounded'>{'Email de contacto'}</h4>
-          </div>
-          <div className='d-flex justify-content-center'>
-            <h4>{job.contactMail}</h4>
+            <h5>{job.contactMail}</h5>
           </div>
 
           <div className='mt-4 d-flex justify-content-center'>
@@ -109,11 +109,13 @@ class SingleJob extends Component {
               Mostrar salario mensual ofrecido
             </button>
           </div>
-          <div className='mt-3 d-flex justify-content-center'>
-            <h4>
+          <div className='textDescription mt-3 d-flex justify-content-center'>
+            <h5>
               {this.state.total !== 0 ? (
                 <div>
-                  {'$' + this.state.total} <br></br>
+                  <div className="mb-2 font-weight-bold d-flex justify-content-center">
+                  {'$' + this.state.total}
+                  </div>
                   {
                     'Este monto representa el ingreso asegurado luego de haber sido descontados todos los impuestos y regulaciones inherentes a la ley impositiva anual de la Provincia de Santa Fe.'
                   }{' '}
@@ -121,7 +123,7 @@ class SingleJob extends Component {
               ) : (
                 ''
               )}
-            </h4>
+            </h5>
           </div>
           <div className='d-flex justify-content-center'>
             {
@@ -132,7 +134,7 @@ class SingleJob extends Component {
                 }}
                 id='btnVolver'
               >
-                <button className='mt-4 btn btn-dark  text-white rounded h5'>
+                <button className='btnPostulate mt-1 btn btn-info text-white rounded h5'>
                   Quiero postularme
                 </button>
               </Link>
@@ -142,7 +144,7 @@ class SingleJob extends Component {
           <div className='d-flex justify-content-center'>
             {
               <Link to='/Empleos' id='btnVolver'>
-                <button className='mt-5 btn btn-info  text-white rounded h5'>
+                <button className='mt-5 btn btn-danger  text-white rounded h5'>
                   Volver
                 </button>
               </Link>

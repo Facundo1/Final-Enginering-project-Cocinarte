@@ -8,7 +8,7 @@ class Filter extends Component {
       <div id='category-combobox-box'>
         <label className='tex-center'>
           <select
-            className='form-control'
+            className='text-center form-control'
             id='category-combobox'
             value={this.props.Category}
             onChange={e =>

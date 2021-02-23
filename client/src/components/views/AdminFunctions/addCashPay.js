@@ -22,7 +22,7 @@ function AddCashPays(props) {
         userEmail: Yup.string().required('Email requerido'),
         userName: Yup.string().required('Nombre requerido'),
         UserLastName: Yup.string().required('Apellido requerido'),
-        montOfPay: Yup.string().required('Monto requerido'),
+        montOfPay: Yup.number().required('Monto requerido').typeError("Solo se permiten numeros"),
         date: Yup.string().required('Fecha requerida')
       })}
       onSubmit={(values, { setSubmitting }) => {

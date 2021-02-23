@@ -55,11 +55,11 @@ const JobPostulate = props => {
     )
   } else {
     body = (
-      <form className='formSendMail mt-5 ' onSubmit={submitHandler}>
+      <form className='formSendMail mt-5' onSubmit={submitHandler}>
         <h3 className='text-center'>
           Complete el formulario para postularse como candidato
         </h3>
-        <div className='d-flex flex-column align-items-center mt-4 border '>
+        <div className='d-flex flex-column align-items-center mt-4'>
           <input
             className='text-center w-25 form-control form-control-sm '
             name='name'

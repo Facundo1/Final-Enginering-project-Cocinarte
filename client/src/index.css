@@ -181,17 +181,42 @@ input.error {
   text-align: center;
   color: white;
   width: 300px;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 24px;
+  font-family: Arial, Helvetica, sans-serif;
   border: none;
 }
-
+.titleName, .titleMail, .titleRequirement, .titleCategoria {
+  background-color: rgb(23, 162, 184);
+  text-align: center;
+  color: white;
+  width: 300px;
+  font-size: 24px;
+  font-family: Arial, Helvetica, sans-serif;
+  border: none;
+}
+.textDescription{
+  margin-left: 100px;
+  margin-right:100px;
+}
+.btnDeleteAdd{
+  width: 290px;
+}
 /*Search Ingredients*/
 .Search-Ingredients-Label {
   font-size: 20px;
   font-weight: bolder;
   margin-bottom: 20px;
 }
-
+.btnMercadoPago {
+  width: 415px;
+  height: 35px;
+  border: none;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  border: 1px solid rgb(18, 148, 223);
+  background: linear-gradient(to bottom, rgb(111, 191, 236), rgb(18, 148, 223));
+}
 .Search-Ingredients-Textbox {
   width: 700px;
   font-size: 20px;
@@ -232,8 +257,7 @@ input.error {
   flex-direction: row;
   justify-content: center;
   width: 500px;
-  font-size: 17px;
-  font-weight: bolder;
+  font-size: 15px;
 }
 
 /*Pricing*/
@@ -334,7 +358,9 @@ input.error {
   width: 100%;
   background-color: rgb(23, 162, 184);
 }
-
+.btnPostulate{
+  width:273px;
+}
 .containerLogin {
   display: flex;
   flex-direction: row;
@@ -399,4 +425,38 @@ input.error {
   75% {margin-left: -300%;}
   100% {margin-left: -300%;}
 
+}
+@media (max-width: 1200px) {
+  .btnMercadoPago {
+    width: 350px;
+  }
+}
+@media (max-width: 1024px) {
+  .btnMercadoPago {
+    width: 315px;
+  }
+}
+
+@media (max-width: 900px) {
+  .btnMercadoPago {
+    width: 290px;
+  }
+}
+
+@media (max-width: 768px) {
+  .btnMercadoPago {
+    width: 250px;
+  }
+}
+
+@media (max-width: 495px) {
+  .btnMercadoPago {
+    width: 230px;
+  }
+}
+
+@media (max-width: 278px) {
+  .btnMercadoPago {
+    width: 200px;
+  }
 }

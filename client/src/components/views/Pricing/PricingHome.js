@@ -12,7 +12,7 @@ const PricingHome = (props) => {
   const user = useSelector((state) => state.user);
   const [product] = React.useState({
     name: "|Cocinarte Premium|",
-    price: 14,
+    price: 10,
     description: "LLeva la pasion por la cocina, a otro nivel.",
   });
 
@@ -63,7 +63,7 @@ const PricingHome = (props) => {
 
       <div className="d-flex justify-content-center">
         <a className="mt-4 w-25 text-info" href="https://mpago.la/1kAMks2">
-          <button className="brnMercadoPago btn btn-info w-100">
+          <button className="btnMercadoPago btn btn-info w-100">
             Mercado pago
           </button>
         </a>
