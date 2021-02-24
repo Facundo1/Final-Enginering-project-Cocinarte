@@ -102,13 +102,17 @@ router.post('/sendMail', (req, res) => {
 
       const transporter = nodemailer.createTransport({
         host: 'smtp.gmail.com',
-        post: 587,
+        port: 587,
         secure: false,
+        ignoreTLS: false,
         auth: {
           user: 'soporte.cocinarte@gmail.com',
           pass: 'Pingoso123'
+        },
+        tls: {
+          rejectUnauthorized: false
         }
-      })
+      }) //
       const mailOptions = {
         from: 'Remitente',
         to: thisUser,
@@ -116,7 +120,13 @@ router.post('/sendMail', (req, res) => {
         text: `Tu nueva contraseña es ${newPassword} es recomendable que la cambies en tu proximo inicio de sesion`
       }
       transporter.sendMail(mailOptions, (error, info) => {
-        console.log('Email enviado')
+        if (error) {
+          emailMessage =
+            'there was an error :-(, and it was this: ' + error.message
+        } else {
+          emailMessage = 'Message sent: ' + info.response
+        }
+        console.log(emailMessage)
       })
     }
   })
