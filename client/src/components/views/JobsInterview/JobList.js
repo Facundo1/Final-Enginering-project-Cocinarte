@@ -10,6 +10,16 @@ class JobList extends Component {
   render() {
     const JobListView = () => (
       <div>
+        <div className='productImg rounded container mb-4 d-flex justify-content-center mt-5'>
+          <h1 className='text-white'>Ofertas laborales</h1>
+        </div>
+        <div class='bg-1'>
+          <h1 class='t-stroke t-shadow font-italic'>
+            {' '}
+            ¡Estas ofertas laborales son de tiempo limitado! no pierdas la
+            oportunidad de desarrollarte en el campo de la gastronomia!
+          </h1>
+        </div>
         <div className='container py-5'>
           <div id='rowTitle'></div>
           <br></br>

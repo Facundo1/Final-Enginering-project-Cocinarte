@@ -94,6 +94,14 @@ input.error {
   height: 50%;
 }
 
+/*Login Page*/
+#loginBackground {
+  background-image: url('/images/loginBackground.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
 /*Recipes list*/
 #containerRecipesText {
   display: flex;
@@ -176,7 +184,10 @@ input.error {
   margin-top: 50px;
   width: 89%;
 }
-.titleReceta, .titleIngredientes, .titlePasos, .titleCategoria {
+.titleReceta,
+.titleIngredientes,
+.titlePasos,
+.titleCategoria {
   background-color: rgb(23, 162, 184);
   text-align: center;
   color: white;
@@ -185,7 +196,10 @@ input.error {
   font-family: Arial, Helvetica, sans-serif;
   border: none;
 }
-.titleName, .titleMail, .titleRequirement, .titleCategoria {
+.titleName,
+.titleMail,
+.titleRequirement,
+.titleCategoria {
   background-color: rgb(23, 162, 184);
   text-align: center;
   color: white;
@@ -194,11 +208,11 @@ input.error {
   font-family: Arial, Helvetica, sans-serif;
   border: none;
 }
-.textDescription{
+.textDescription {
   margin-left: 100px;
-  margin-right:100px;
+  margin-right: 100px;
 }
-.btnDeleteAdd{
+.btnDeleteAdd {
   width: 290px;
 }
 /*Search Ingredients*/
@@ -358,39 +372,39 @@ input.error {
   width: 100%;
   background-color: rgb(23, 162, 184);
 }
-.productImg{
+.productImg {
   background-color: rgb(23, 162, 184);
   box-shadow: 5px 5px 6px 5px rgb(122, 121, 121);
-  height:50px;
+  height: 50px;
   width: 500px;
   color: white;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+    'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
-.titlePostulate{
+.titlePostulate {
   background-color: rgb(23, 162, 184);
   box-shadow: 5px 5px 6px 5px rgb(122, 121, 121);
-  height:40px;
+  height: 40px;
   width: 780px;
   border-radius: 15px;
   font-weight: bold;
   color: white;
 }
-.videoSide{
-  margin-top:60px;
+.videoSide {
+  margin-top: 60px;
 }
-.infoContact{
+.infoContact {
   width: 1300px;
   box-shadow: 5px 5px 6px 3px rgb(122, 121, 121);
   background-color: rgb(230, 236, 143);
 }
-.formInputs{
+.formInputs {
   box-shadow: 5px 5px 6px 5px rgb(122, 121, 121);
   width: 730px;
 }
 
-
-.btnPostulate{
-  width:273px;
+.btnPostulate {
+  width: 273px;
 }
 .containerLogin {
   display: flex;
@@ -412,54 +426,70 @@ input.error {
 .textoFavorito {
   margin-left: -120px !important;
 }
- .containerImg{
-   height: 600px;
-   width: 600px;
-  background-image: url("../src/assets/pago3.jpg");
+.containerImg {
+  height: 600px;
+  width: 600px;
+  background-image: url('../src/assets/pago3.jpg');
   box-shadow: 5px 5px 6px 5px rgb(122, 121, 121);
-} 
-.btnMercadoPago{
-  background-color:#f15025 !important; 
 }
-.oferText{
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+.btnMercadoPago {
+  background-color: #f15025 !important;
 }
-.slider{
-  margin-top:-40px;
-  width:100%;
+.oferText {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+    'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.slider {
+  margin-top: -40px;
+  width: 100%;
   overflow: hidden;
 }
 
-.slider ul{
-  display:flex;
-  padding:0;
+.slider ul {
+  display: flex;
+  padding: 0;
 
   width: 100%;
   animation: cambio 20s infinite;
   animation-direction: alternate;
 }
-.slider li{
+.slider li {
   width: 100%;
   list-style: none;
 }
-.slider img{
+.slider img {
   width: 1920px;
   height: 800px;
 }
 
-@keyframes cambio{
-  0% {margin-left: 0;}
-  20% {margin-left: 0;}
+@keyframes cambio {
+  0% {
+    margin-left: 0;
+  }
+  20% {
+    margin-left: 0;
+  }
 
-  25% {margin-left: -100%;}
-  45% {margin-left: -100%;}
+  25% {
+    margin-left: -100%;
+  }
+  45% {
+    margin-left: -100%;
+  }
 
-  50% {margin-left: -200%;}
-  70% {margin-left: -200%;}
+  50% {
+    margin-left: -200%;
+  }
+  70% {
+    margin-left: -200%;
+  }
 
-  75% {margin-left: -300%;}
-  100% {margin-left: -300%;}
-
+  75% {
+    margin-left: -300%;
+  }
+  100% {
+    margin-left: -300%;
+  }
 }
 @media (max-width: 1200px) {
   .btnMercadoPago {

@@ -39,7 +39,7 @@ function DetailVideoPage(props) {
 
           <br></br>
           <video
-            style={{ width: '100%' }}
+            style={{ width: '100%', padding: '-3rem 2em' }}
             src={Video && `http://localhost:5000/${Video.filePath}`}
             controls
           ></video>

@@ -6,7 +6,7 @@ import LoginPage from './views/LoginPage/LoginPage.js'
 import RegisterPage from './views/RegisterPage/RegisterPage.js'
 import NavBar from './views/NavBar/NavBar'
 import Footer from './views/Footer/Footer'
-import Home from './views/LandingPage/Home'
+
 import Recipes from './views/Recipes/Recipes'
 import SingleRecipe from './views/Recipes/SingleRecipe'
 import Catalogo from './views/Recipes/Catalog'
@@ -27,6 +27,7 @@ import Auditory from './views/AdminFunctions/Auditory'
 import jobHome from './views/JobsInterview/Jobs'
 import SingleJob from './views/JobsInterview/SingleJob'
 import JobPostulate from './views/JobsInterview/JobPostulate'
+import aboutUs from './views/AboutUs/pages/Home'
 
 //null   Anyone Can go inside
 //true   only logged in user can go inside
@@ -38,7 +39,7 @@ function App() {
       <NavBar />
       <div style={{ paddingTop: '69px', minHeight: 'calc(100vh - 80px)' }}>
         <Switch>
-          <Route exact path='/' component={Auth(Home, null)} />
+          <Route exact path='/' component={Auth(aboutUs, null)} />
           <Route exact path='/login' component={Auth(LoginPage, false)} />
           <Route exact path='/register' component={Auth(RegisterPage, false)} />
           <Route
@@ -115,8 +116,6 @@ function App() {
           />
         </Switch>
       </div>
-
-      <Footer />
     </Suspense>
   )
 }

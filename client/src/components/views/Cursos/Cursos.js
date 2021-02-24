@@ -133,7 +133,9 @@ function Cursos() {
 
     return (
       <div style={{ width: '85%', margin: '3rem auto' }}>
-        <Title level={2}> Cursos online </Title>
+        <div className='productImg rounded container mb-4 d-flex justify-content-center mt-5'>
+          <h1 className='text-white'>Cursos de cocina</h1>
+        </div>
         <hr />
 
         <Row gutter={16}>{renderCards}</Row>

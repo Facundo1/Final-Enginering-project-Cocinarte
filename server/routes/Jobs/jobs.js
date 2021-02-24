@@ -17,6 +17,17 @@ router.post('/sendCurriculum', (req, res) => {
   const postulantObjetives = req.body.objetives
   const companyEmail = req.body.companyEmail
 
+  console.log(
+    postulantName,
+    postulantLastname,
+    postulantAddress,
+    postulantPhone,
+    postulantEmail,
+    postulantStudies,
+    postulantExperience,
+    postulantObjetives,
+    companyEmail
+  )
   const transporter = nodemailer.createTransport({
     host: 'smtp.gmail.com',
     post: 587,
@@ -41,7 +52,7 @@ router.post('/sendCurriculum', (req, res) => {
     if (err) return res.json({ success: false, err })
     return res.status(200).json({
       success: true,
-      msg: 'Email enviado correctamente'
+      msg: info.response
     })
   })
 })
