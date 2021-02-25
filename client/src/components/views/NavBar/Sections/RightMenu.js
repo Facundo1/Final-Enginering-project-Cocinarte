@@ -160,16 +160,6 @@ function RightMenu(props) {
               ''
             )}
 
-            {user.userData &&
-            user.userData.email === 'facundosa123@gmail.com' ? (
-              <Menu.Item key='Backup'>
-                <a className='containerLogout' href='/Backup'>
-                  Generar backup
-                </a>
-              </Menu.Item>
-            ) : (
-              ''
-            )}
             <Menu.Item key='logout'>
               <a className='containerLogout' onClick={logoutHandler}>
                 Salir de la cuenta

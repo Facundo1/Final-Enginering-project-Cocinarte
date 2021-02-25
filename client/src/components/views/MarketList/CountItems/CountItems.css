@@ -1,0 +1,12 @@
+.market-count {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  color: gray;
+  align-items: center;
+  font-size: 14px;
+  font-weight: bold;
+  margin-top: 5px;
+  padding-bottom: 35px;
+}

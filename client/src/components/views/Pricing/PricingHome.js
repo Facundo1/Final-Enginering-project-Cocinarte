@@ -50,15 +50,6 @@ const PricingHome = props => {
       </div>
     )
     return bodyHtml
-  } else if (user.userData && user.userData.accountType === 'Cuenta gratuita') {
-    bodyHtml = (
-      <div classname='mt-5'>
-        <h3 className='text-center mt-5 text-danger font-weight-bold'>
-          Hazte premium para acceder a todos los beneficios de |Cocinarte|
-        </h3>
-      </div>
-    )
-    return bodyHtml
   } else {
     return (
       <div>
@@ -101,7 +92,9 @@ const PricingHome = props => {
                 Con el metodo de pago a través de "Mercado Pago" , una vez
                 acreditada la compra se deberá enviar un email a:
                 <div className='d-flex justify-content-center mt-3'>
-                  <h5 className='text-danger'>|soporte.cocinarte@gmail.com|</h5>
+                  <h5 className='text-danger font-weight-bold'>
+                    |soporte.cocinarte@gmail.com|
+                  </h5>
                 </div>
                 <hr></hr>
                 <div className='d-flex justify-content-center'>
@@ -126,8 +119,10 @@ const PricingHome = props => {
               </p>
             </div>
           </p>
-          <br></br>
         </div>
+        <br></br>
+        <br></br>
+        <br></br>
       </div>
     )
   }

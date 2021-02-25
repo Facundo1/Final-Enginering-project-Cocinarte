@@ -1,0 +1,54 @@
+.box {
+  width: 575px;
+  background-color: #f5f5f5;
+}
+
+.market-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.market-title {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 36px;
+  font-weight: bold;
+}
+
+.market-button {
+  background-color: #1daafc;
+  border: 4px solid #1daafc;
+  color: white;
+  border-radius: 4px;
+  width: 100%;
+  height: 50px;
+  margin-top: 15px;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+}
+
+.market-button:hover {
+  border: 4px solid #4caf50;
+  background-color: #4caf50;
+}
+
+.divImg {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loading {
+  height: 133px;
+  width: 200px;
+}

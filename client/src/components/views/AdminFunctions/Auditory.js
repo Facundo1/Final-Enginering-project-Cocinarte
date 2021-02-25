@@ -79,15 +79,15 @@ function Auditory() {
     <div>
       <div>
         <div>
-          <div className='mt-3 d-flex justify-content-center'>
-            <h1>|Auditoria pagos con tarjeta|</h1>
+          <div className='productImg rounded container mb-4 d-flex justify-content-center mt-5'>
+            <h1 className='text-white'>Pagos con tarjeta</h1>
           </div>
           <div className='d-flex justify-content-center'>
             <a
               href='https://dashboard.stripe.com/test/dashboard'
               target='_blank'
             >
-              <button className='btn btn-info  text-white rounded h5'>
+              <button className='btn btn-warning  text-dark font-weight-bold rounded h5'>
                 Ir al dashboard
               </button>
             </a>
@@ -100,8 +100,8 @@ function Auditory() {
               para poder visualizar la auditoria completa.
             </h5>
           </div>
-          <div className='mt-5 d-flex justify-content-center'>
-            <h1>|Auditoria Mercado Pago|</h1>
+          <div className='productImg rounded container mb-4 d-flex justify-content-center mt-5'>
+            <h1 className='text-white'>Auditoria Mercado Pago</h1>
           </div>
           <div className='mt-5 d-flex justify-content-center'>
             <table className='tableAuditory ml-5 mr-5'>
@@ -128,8 +128,8 @@ function Auditory() {
             </table>
           </div>
         </div>
-        <div className='mt-5 d-flex justify-content-center'>
-          <h1>|Auditoria login|</h1>
+        <div className='productImg rounded container mb-4 d-flex justify-content-center mt-5'>
+          <h1 className='text-white'>Auditoria Login</h1>
         </div>
         <div className='d-flex justify-content-center'>
           <table className='tableAuditory ml-5 mr-5'>

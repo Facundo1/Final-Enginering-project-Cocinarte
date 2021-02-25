@@ -28,6 +28,7 @@ import jobHome from './views/JobsInterview/Jobs'
 import SingleJob from './views/JobsInterview/SingleJob'
 import JobPostulate from './views/JobsInterview/JobPostulate'
 import aboutUs from './views/AboutUs/pages/Home'
+import MarketList from './views/MarketList/Container/index'
 
 //null   Anyone Can go inside
 //true   only logged in user can go inside
@@ -54,6 +55,7 @@ function App() {
           />
           <Route exact path='/Recetas' component={Auth(Recipes, null)} />
           <Route exact path='/Catalogo' component={Auth(Catalogo, null)} />
+          <Route exact path='/Compras' component={Auth(MarketList, null)} />
           <Route exact path='/AnalizadorBasal' component={Auth(Cursos, true)} />
           <Route
             exact
