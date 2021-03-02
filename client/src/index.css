@@ -427,9 +427,9 @@ input.error {
   margin-left: -120px !important;
 }
 .containerImg {
-  height: 600px;
-  width: 600px;
-  background-image: url('../src/assets/pago3.jpg');
+  height: 500px;
+  width: 400px;
+  background-image: url('../src/assets/premium');
   box-shadow: 5px 5px 6px 5px rgb(122, 121, 121);
 }
 .btnMercadoPago {

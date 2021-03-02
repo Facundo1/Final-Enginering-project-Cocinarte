@@ -61,25 +61,35 @@ const PricingHome = props => {
         <div className='oferText mt-5 d-flex justify-content-center'>
           <h3 className='text-dark'>Oferta exclusiva: ${product.price}</h3>
         </div>
-        <div className='d-flex justify-content-center'>
-          <StripeCheckout
-            className='mt-4 w-25'
-            label='Pagar con tarjeta'
-            stripeKey='pk_test_51I3ODJGL81eAF97DdCWXll6O0t5gJWkgaVCVhNStDn7B2qGRSVuYDsE4eJ45rHKGQCoFMxLHClXYHG3aPpGQfkRr00selbXucj'
-            token={handleToken}
-            amount={product.price * 100}
-            name='|Cocinarte Premium|'
-            billingAddress
-          />
-        </div>
+        {user.userData && user.userData.accountType !== 'Cuenta Premium' ? (
+          <div>
+            <div className='d-flex justify-content-center'>
+              <StripeCheckout
+                className='mt-4 w-25'
+                label='Pagar con tarjeta'
+                stripeKey='pk_test_51I3ODJGL81eAF97DdCWXll6O0t5gJWkgaVCVhNStDn7B2qGRSVuYDsE4eJ45rHKGQCoFMxLHClXYHG3aPpGQfkRr00selbXucj'
+                token={handleToken}
+                amount={product.price * 100}
+                name='|Cocinarte Premium|'
+                billingAddress
+              />
+            </div>
 
-        <div className='d-flex justify-content-center'>
-          <a className='mt-4 w-25 text-info' href='https://mpago.la/1kAMks2'>
-            <button className='btnMercadoPago btn btn-info w-100'>
-              Mercado pago
-            </button>
-          </a>
-        </div>
+            <div className='d-flex justify-content-center'>
+              <a
+                className='mt-4 w-25 text-info'
+                href='https://mpago.la/1kAMks2'
+              >
+                <button className='btnMercadoPago btn btn-info w-100'>
+                  Mercado pago
+                </button>
+              </a>
+            </div>
+          </div>
+        ) : (
+          ''
+        )}
+
         <br></br>
 
         <div className='infoContact container d-flex justify-content-center'>

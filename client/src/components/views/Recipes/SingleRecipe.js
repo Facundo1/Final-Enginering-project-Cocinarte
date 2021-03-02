@@ -41,6 +41,7 @@ class SingleRecipe extends Component {
 
   render() {
     const recipe = this.state.recipe
+    console.log(recipe)
     const id = this.state.recipe._id
     console.log(id)
     const Ingredients = recipe.Ingredients && recipe.Ingredients.split(',')
