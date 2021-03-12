@@ -20,6 +20,9 @@ function LeftMenu(props) {
           <Menu.Item key='setting:3'>
             <a href='/Compras'>Hacer lista de compras</a>
           </Menu.Item>
+          <Menu.Item key='setting:4'>
+            <a href='/Buscador'>Informacion gastronomica</a>
+          </Menu.Item>
         </MenuItemGroup>
       </SubMenu>
       <Menu.Item key='Premium'>
